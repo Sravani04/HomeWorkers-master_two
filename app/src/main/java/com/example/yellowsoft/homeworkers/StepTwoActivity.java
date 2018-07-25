@@ -21,9 +21,9 @@ import java.util.Calendar;
 public class StepTwoActivity extends Activity {
     ImageView back_btn;
     TextView previous_btn,next_btn;
-    LinearLayout yes,no,yes_btn,no_btn,yes_layout,yes_working,no_working,no_layout;
-    TextView yes_option,no_option,yes_value,no_value,yes_val,no_val,when_option,yes_text,no_text;
-    EditText company_name,full_name,occupation,companyname,contact,fullname2,occupation2,companyname2,contactdetails2,fullname3,occupation3,
+    LinearLayout yes,no,yes_btn,no_btn,yes_layout,yes_working,no_working,no_layout,when_layout;
+    TextView yes_option,no_option,yes_value,no_value,yes_val,no_val,yes_text,no_text;
+    EditText company_name,full_name,occupation,companyname,contact,fullname2,occupation2,companyname2,contactdetails2,fullname3,occupation3,when_option,
     companyname3,contactdeatsils3,relationship;
     ImageView yes_checkbox,no_checkbox,yes_check,no_check,yes_imageview,no_imageview,yes_,no_;
     String checked,checked1,checked2,checked3;
@@ -59,7 +59,7 @@ public class StepTwoActivity extends Activity {
         no_value = (TextView) findViewById(R.id.no_value);
         yes_val = (TextView) findViewById(R.id.yes_val);
         no_val = (TextView) findViewById(R.id.no_val);
-        when_option = (TextView) findViewById(R.id.when_option);
+        when_option = (EditText) findViewById(R.id.when_option);
         yes_text = (TextView) findViewById(R.id.yes_text);
         no_text = (TextView) findViewById(R.id.no_text);
         yes_checkbox = (ImageView) findViewById(R.id.yes_checkbox);
@@ -68,6 +68,7 @@ public class StepTwoActivity extends Activity {
         no_check = (ImageView) findViewById(R.id.no_check);
         yes_imageview = (ImageView) findViewById(R.id.yes_imageview);
         no_imageview = (ImageView) findViewById(R.id.no_imageview);
+        when_layout = (LinearLayout) findViewById(R.id.when_layout);
         yes_ = (ImageView) findViewById(R.id.yes_);
         no_ = (ImageView) findViewById(R.id.no_);
 
@@ -210,8 +211,16 @@ public class StepTwoActivity extends Activity {
         occupation = (EditText) findViewById(R.id.occupation);
         companyname = (EditText) findViewById(R.id.company_name);
         relationship = (EditText) findViewById(R.id.relationship);
+        contact = (EditText) findViewById(R.id.contact);
 
          when_option.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 datePicker();
+             }
+         });
+
+         when_layout.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
                  datePicker();
@@ -245,6 +254,8 @@ public class StepTwoActivity extends Activity {
                 intent.putExtra("fullname",full_name.getText().toString());
                 intent.putExtra("occupation",occupation.getText().toString());
                 intent.putExtra("companyname",companyname.getText().toString());
+                intent.putExtra("contact",contact.getText().toString());
+                intent.putExtra("when",when_option.getText().toString());
                 intent.putExtra("relationship",relationship.getText().toString());
                 intent.putExtra("employed",checked);
                 intent.putExtra("current_employer",checked1);

@@ -33,7 +33,7 @@ public class StepFourActivity extends Activity {
     String fname,mname,familyname,dob,pob,nationality,expirydate,article,address,telephone,mobile,email,position,doyouworknow,whencanyoustart,expectedsal,marital_status,
             company_name,fullname,occupation,companyname,relationship,employed,current_employer,applied,relatives,school_first,school_second,school_third,school_fourth,
     years_first,years_second,years_third,years_fourth,graduated_date_first,graduated_date_second,graduated_date_third,graduated_date_fourth,certificate_first,certificate_second,
-    certificate_third,certificate_fourth,english,arabic,msoffice,typing;
+    certificate_third,certificate_fourth,english,arabic,msoffice,typing,contact,when;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -93,6 +93,8 @@ public class StepFourActivity extends Activity {
         current_employer = getIntent().getStringExtra("current_employer");
         applied = getIntent().getStringExtra("applied");
         relatives = getIntent().getStringExtra("relatives");
+        contact = getIntent().getStringExtra("contact");
+        when= getIntent().getStringExtra("when");
         school_first= getIntent().getStringExtra("schoolname");
         years_first = getIntent().getStringExtra("years");
         graduated_date_first = getIntent().getStringExtra("graduateddate");
@@ -297,6 +299,7 @@ public class StepFourActivity extends Activity {
 
     public void post_employee(){
 
+
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("member_id", Session.GetUserId(this));
         jsonObject.addProperty("first_name",fname);
@@ -322,9 +325,9 @@ public class StepFourActivity extends Activity {
         jsonObject.addProperty("fullname_first",fullname);
         jsonObject.addProperty("occupation_first",occupation);
         jsonObject.addProperty("company_first",companyname);
-       // jsonObject.addProperty("contactdetails_first",);
+        jsonObject.addProperty("contactdetails_first",contact);
         jsonObject.addProperty("applied_before",applied);
-        //jsonObject.addProperty("when",wh);
+        jsonObject.addProperty("when",when);
         jsonObject.addProperty("relatives_incompany",relatives);
         jsonObject.addProperty("name_relationship",relationship);
         jsonObject.addProperty("school_first",school_first);
@@ -364,27 +367,86 @@ public class StepFourActivity extends Activity {
 
         Log.e("reeeee", jsonObject.toString());
 
-        Ion.with(this)
-                .load(Session.SERVER_URL+"add-employee.php")
-                .setBodyParameter("member_id",Session.GetUserId(this))
-                .setBodyParameter("content",jsonObject.toString())
-                .asJsonObject()
-                .setCallback(new FutureCallback<JsonObject>() {
-                    @Override
-                    public void onCompleted(Exception e, JsonObject result) {
-                        if (result.get("status").getAsString().equals("Success")) {
-                            Log.e("result", result.toString());
-                            Log.e("corporate_id", result.get("corporate_id").getAsString());
-                            Log.e("result", result.get("message").getAsString());
+
+        if (fname.equals("")){
+            Toast.makeText(StepFourActivity.this,"Please Enter FirstName",Toast.LENGTH_SHORT).show();
+        }else if (mname.equals("")){
+            Toast.makeText(StepFourActivity.this,"Please Enter MiddleName",Toast.LENGTH_SHORT).show();
+        }else if (fname.equals("")){
+            Toast.makeText(StepFourActivity.this,"Please Enter FamilyName",Toast.LENGTH_SHORT).show();
+        }else if (dob.equals("")){
+            Toast.makeText(StepFourActivity.this,"Please Enter Date Of Birth",Toast.LENGTH_SHORT).show();
+        }else if (pob.equals("")){
+            Toast.makeText(StepFourActivity.this,"Please Enter Place Of Birth",Toast.LENGTH_SHORT).show();
+        }else if (nationality.equals("")){
+            Toast.makeText(StepFourActivity.this,"Please Enter Nationality",Toast.LENGTH_SHORT).show();
+        }else if (expirydate.equals("")){
+            Toast.makeText(StepFourActivity.this,"Please Enter Residency Expire Date",Toast.LENGTH_SHORT).show();
+        }else if (article.equals("")){
+            Toast.makeText(StepFourActivity.this,"Please Enter Article Number",Toast.LENGTH_SHORT).show();
+        }else if (address.equals("")){
+            Toast.makeText(StepFourActivity.this,"Please Enter Address",Toast.LENGTH_SHORT).show();
+        }else if (telephone.equals("")){
+            Toast.makeText(StepFourActivity.this,"Please Enter Telephone",Toast.LENGTH_SHORT).show();
+        }else if (mobile.equals("")){
+            Toast.makeText(StepFourActivity.this,"Please Enter Mobile Number",Toast.LENGTH_SHORT).show();
+        }else if (email.equals("")){
+            Toast.makeText(StepFourActivity.this,"Please Enter Email",Toast.LENGTH_SHORT).show();
+        }else if (position.equals("")){
+            Toast.makeText(StepFourActivity.this,"Please Enter Selected Post",Toast.LENGTH_SHORT).show();
+        }else if (whencanyoustart.equals("")){
+            Toast.makeText(StepFourActivity.this,"Please Enter When can you start",Toast.LENGTH_SHORT).show();
+        }else if (expectedsal.equals("")){
+            Toast.makeText(StepFourActivity.this,"Please Enter Expected  Salary",Toast.LENGTH_SHORT).show();
+        }else if (marital_status.equals("")){
+            Toast.makeText(StepFourActivity.this,"Please Enter Marital Status",Toast.LENGTH_SHORT).show();
+        }else if (employed.equals("")){
+            Toast.makeText(StepFourActivity.this,"Please Enter Are you employed?",Toast.LENGTH_SHORT).show();
+        }else if (company_name.equals("")){
+            Toast.makeText(StepFourActivity.this,"Please Enter Company Name",Toast.LENGTH_SHORT).show();
+        }else if (current_employer.equals("")){
+            Toast.makeText(StepFourActivity.this,"Please Enter Current Employer?",Toast.LENGTH_SHORT).show();
+        }else if (fullname.equals("")){
+            Toast.makeText(StepFourActivity.this,"Please Enter Full Name",Toast.LENGTH_SHORT).show();
+        }else if (occupation.equals("")) {
+            Toast.makeText(StepFourActivity.this, "Please Enter Occupation", Toast.LENGTH_SHORT).show();
+        }else if (companyname.equals("")){
+            Toast.makeText(StepFourActivity.this, "Please Enter Company Name", Toast.LENGTH_SHORT).show();
+        }else if (contact.equals("")){
+            Toast.makeText(StepFourActivity.this, "Please Enter Contact Details", Toast.LENGTH_SHORT).show();
+        }else if (applied.equals("")){
+            Toast.makeText(StepFourActivity.this, "Please Enter Applied ", Toast.LENGTH_SHORT).show();
+        }else if (when.equals("")){
+            Toast.makeText(StepFourActivity.this, "Please Enter When", Toast.LENGTH_SHORT).show();
+        }else if (relatives.equals("")){
+            Toast.makeText(StepFourActivity.this, "Please Enter Relatives working in this company", Toast.LENGTH_SHORT).show();
+        }else if (relationship.equals("")){
+            Toast.makeText(StepFourActivity.this, "Please Enter Name and Relationship", Toast.LENGTH_SHORT).show();
+        }else {
+
+
+            Ion.with(this)
+                    .load(Session.SERVER_URL + "add-employee.php")
+                    .setBodyParameter("member_id", Session.GetUserId(this))
+                    .setBodyParameter("content", jsonObject.toString())
+                    .asJsonObject()
+                    .setCallback(new FutureCallback<JsonObject>() {
+                        @Override
+                        public void onCompleted(Exception e, JsonObject result) {
+                            if (result.get("status").getAsString().equals("Success")) {
+                                Log.e("result", result.toString());
+                                Log.e("corporate_id", result.get("corporate_id").getAsString());
+                                Log.e("result", result.get("message").getAsString());
+                                Toast.makeText(StepFourActivity.this, result.get("message").getAsString(), Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(StepFourActivity.this, MainActivity.class);
+                                startActivity(intent);
+                                finish();
+                                return;
+                            }
                             Toast.makeText(StepFourActivity.this, result.get("message").getAsString(), Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(StepFourActivity.this, MainActivity.class);
-                            startActivity(intent);
-                            finish();
-                            return;
                         }
-                        Toast.makeText(StepFourActivity.this, result.get("message").getAsString(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+                    });
+        }
     }
 
 

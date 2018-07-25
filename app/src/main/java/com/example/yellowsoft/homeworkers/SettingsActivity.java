@@ -55,14 +55,14 @@ public class SettingsActivity extends Activity {
         st_contact = (TextView) findViewById(R.id.st_contact);
         st_about = (TextView) findViewById(R.id.st_about);
         //st_contactus = (TextView) findViewById(R.id.st_contactus);
-        st_name.setText(Session.GetWord(this,"Settings"));
-        st_lang.setText(Session.GetWord(this,"LANGUAGE"));
-        st_settings.setText(Session.GetWord(this,"MY SETTINGS"));
-        st_profile.setText(Session.GetWord(this,"Edit Profile"));
-        st_logout.setText(Session.GetWord(this,"LogOut"));
-        st_support.setText(Session.GetWord(this,"SUPPORT"));
-        st_contact.setText(Session.GetWord(this,"CONTACT US"));
-        st_about.setText(Session.GetWord(this,"ABOUT US"));
+        //st_name.setText(Session.GetWord(this,"Settings"));
+        //st_lang.setText(Session.GetWord(this,"LANGUAGE"));
+        //st_settings.setText(Session.GetWord(this,"MY SETTINGS"));
+        //st_profile.setText(Session.GetWord(this,"Edit Profile"));
+        //st_logout.setText(Session.GetWord(this,"LogOut"));
+        //st_support.setText(Session.GetWord(this,"SUPPORT"));
+        //st_contact.setText(Session.GetWord(this,"CONTACT US"));
+        //st_about.setText(Session.GetWord(this,"ABOUT US"));
        // st_contactus.setText(Session.GetWord(this,"CONTACT US"));
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override

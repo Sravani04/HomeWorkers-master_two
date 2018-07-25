@@ -591,13 +591,12 @@ It has survived not only five centuries, but also the leap into electronic types
                 android:layout_height="350dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:background="@drawable/whire_rounded_corners_color"
+                android:background="@drawable/black_fully_rounded_corners"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:background="@color/black"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:paddingLeft="10dp"
@@ -631,45 +630,9 @@ It has survived not only five centuries, but also the leap into electronic types
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:orientation="vertical"></LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
                     android:gravity="center"
                     android:orientation="vertical">
-
-                    <com.example.yellowsoft.homeworkers.TextViewRegular
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Comments"
-                        android:textColor="@color/registerdeselect" />
-
-                    <com.example.yellowsoft.homeworkers.EditTextRegular
-                        android:id="@+id/comments_edit"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:background="@android:color/transparent"
-                        android:hint="Comments Here"
-                        android:inputType="textMultiLine|textPersonName"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@color/registerdeselect"></LinearLayout>
-
-                    <com.example.yellowsoft.homeworkers.TextViewRegular
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Rating"
-                        android:textColor="@color/registerdeselect" />
 
 
                     <RatingBar
@@ -677,7 +640,7 @@ It has survived not only five centuries, but also the leap into electronic types
                         style="@style/commentsRatingBar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
+                        android:layout_gravity="center_vertical|center_horizontal"
                         android:layout_marginTop="10dp"
                         android:background="@color/black"
                         android:clickable="false"
@@ -686,11 +649,17 @@ It has survived not only five centuries, but also the leap into electronic types
                         android:scrollbarAlwaysDrawHorizontalTrack="false"
                         android:stepSize="0.5" />
 
-                    <LinearLayout
+                    <com.example.yellowsoft.homeworkers.EditTextRegular
+                        android:id="@+id/comments_edit"
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@color/registerdeselect"></LinearLayout>
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:background="@android:color/transparent"
+                        android:hint="Enter Review"
+                        android:inputType="textMultiLine|textPersonName"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/registerdeselect"
+                        android:textSize="14sp" />
 
 
                 </LinearLayout>
@@ -700,7 +669,7 @@ It has survived not only five centuries, but also the leap into electronic types
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_margin="20dp"
-                    android:background="@drawable/rou_rect"
+                    android:background="@drawable/white_fully_rounded_rect"
                     android:gravity="center"
                     android:orientation="vertical">
 

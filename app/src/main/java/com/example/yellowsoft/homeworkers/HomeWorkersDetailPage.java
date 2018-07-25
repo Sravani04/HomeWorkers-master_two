@@ -40,7 +40,7 @@ public class HomeWorkersDetailPage extends Activity {
     RecyclerView recyclerView;
     HomeWorkersDetailPageAdapter adapter;
     HomeWorkers homeWorkers;
-    TextView hw_app_id, hw_age, hw_nationality, hw_religion, hw_sal, hw_amt, hw_experience, full_amt, applicant_id, call_btn, email_btn;
+    TextView hw_app_id, hw_age, hw_nationality, hw_religion, hw_sal, hw_amt, full_amt, applicant_id, call_btn, email_btn;
     ImageView hw_image;
     int MY_PERMISSIONS_REQUEST_CALL_PHONE;
     LinearLayout comments_popup,submit_btn;
@@ -53,7 +53,7 @@ public class HomeWorkersDetailPage extends Activity {
     String amount;
     String msg;
     TextView st_exp,st_pd,st_full_amt,st_rem_amt,st_partial;
-    TextView remaining_amt;
+    TextView remaining_amt,hw_experience;
     String full_amt_kd,part_amt_kd,full_amount,part_amount;
 
     @Override
@@ -96,6 +96,7 @@ public class HomeWorkersDetailPage extends Activity {
         st_full_amt = (TextView) findViewById(R.id.st_full_amt);
         //st_rem_amt = (TextView) findViewById(R.id.st_rem_amt);
         st_partial = (TextView) findViewById(R.id.st_partial);
+
         book_btn = (TextView) findViewById(R.id.pay_btn);
          ratingBar = (RatingBar) findViewById(R.id.rating);
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
@@ -105,6 +106,9 @@ public class HomeWorkersDetailPage extends Activity {
 
             }
         });
+
+        hw_experience = (TextView) findViewById(R.id.hw_experience);
+        hw_experience.setText(homeWorkers.experience);
 
 
 

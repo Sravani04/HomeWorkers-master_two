@@ -234,7 +234,7 @@
 
 
             <LinearLayout
-                android:id="@+id/hw_btn"
+                android:id="@+id/corporate_request_btn"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="10dp"
@@ -248,7 +248,7 @@
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:text="Home Worker Requests"
+                    android:text="Corporate Request"
                     android:textColor="@color/white"
                     android:textSize="15sp" />
 
@@ -271,7 +271,7 @@
                 android:background="@color/white"></LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ahw_btn"
+                android:id="@+id/employee_request_btn"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:orientation="horizontal">
@@ -283,7 +283,7 @@
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:text="Available Home Workers"
+                    android:text="Employee Requests"
                     android:textColor="@color/white"
                     android:textSize="15sp" />
 
@@ -322,10 +322,10 @@
                     android:layout_marginLeft="25dp"
                     android:layout_marginRight="25dp"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/rou_rect"
+                    android:background="@drawable/white_fully_rounded_rect"
                     android:gravity="center_vertical|center_horizontal"
                     android:text="LogOut"
-                    android:textColor="#ffffff"
+                    android:textColor="@color/black"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
@@ -335,6 +335,7 @@
 
         </LinearLayout>
     </LinearLayout>
+
 
 
 </LinearLayout>

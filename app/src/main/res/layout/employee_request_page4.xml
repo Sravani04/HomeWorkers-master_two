@@ -54,7 +54,6 @@
                 android:orientation="vertical">
 
                 <com.example.yellowsoft.homeworkers.TextViewRegular
-                    android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:text="Employee History"
@@ -125,7 +124,6 @@
 
 
                 <com.example.yellowsoft.homeworkers.TextViewRegular
-                    android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:layout_marginTop="10dp"
@@ -141,10 +139,8 @@
                     <LinearLayout
                         android:id="@+id/from_date_layout"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
-                        android:orientation="horizontal"
-                        android:visibility="visible">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                         <android.support.design.widget.TextInputLayout
                             android:layout_width="wrap_content"
@@ -153,16 +149,20 @@
                             android:layout_weight="1"
                             android:textColorHint="@color/registerdeselect">
 
-                            <com.example.yellowsoft.homeworkers.TextViewRegular
+                            <com.example.yellowsoft.homeworkers.EditTextRegular
                                 android:id="@+id/from_date_option"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:background="@android:color/transparent"
+                                android:focusableInTouchMode="false"
                                 android:gravity="center_vertical"
                                 android:hint="FromDate"
                                 android:paddingRight="10dp"
                                 android:textColor="@color/white"
                                 android:textColorHint="@color/registerdeselect"
-                                android:textColorLink="@color/white" />
+                                android:textColorLink="@color/white"
+                                android:textSize="14sp" />
+
                         </android.support.design.widget.TextInputLayout>
 
 
@@ -173,6 +173,8 @@
                             android:padding="5dp"
                             android:src="@drawable/topbotarrow" />
                     </LinearLayout>
+
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -184,10 +186,8 @@
                     <LinearLayout
                         android:id="@+id/to_date_layout"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
-                        android:orientation="horizontal"
-                        android:visibility="visible">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                         <android.support.design.widget.TextInputLayout
                             android:layout_width="wrap_content"
@@ -196,15 +196,20 @@
                             android:layout_weight="1"
                             android:textColorHint="@color/registerdeselect">
 
-                            <com.example.yellowsoft.homeworkers.TextViewRegular
+                            <com.example.yellowsoft.homeworkers.EditTextRegular
                                 android:id="@+id/to_date_option"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:background="@android:color/transparent"
+                                android:focusableInTouchMode="false"
                                 android:gravity="center_vertical"
-                                android:hint="To Date"
+                                android:hint="ToDate"
+                                android:paddingRight="10dp"
                                 android:textColor="@color/white"
                                 android:textColorHint="@color/registerdeselect"
-                                android:textColorLink="@color/white" />
+                                android:textColorLink="@color/white"
+                                android:textSize="14sp" />
+
                         </android.support.design.widget.TextInputLayout>
 
 
@@ -215,6 +220,7 @@
                             android:padding="5dp"
                             android:src="@drawable/topbotarrow" />
                     </LinearLayout>
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -314,6 +320,40 @@
                     android:textColorHint="@color/registerdeselect">
 
                     <com.example.yellowsoft.homeworkers.EditTextRegular
+                        android:id="@+id/details"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/transparent"
+                        android:gravity="start"
+                        android:hint="Details(Write your working history)"
+                        android:inputType="number"
+                        android:textAlignment="viewStart"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="@color/registerdeselect"
+                        android:textColorLink="@color/white"
+                        android:textCursorDrawable="@null"
+                        android:textSize="14sp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:layout_marginTop="20dp"
+                    android:paddingBottom="3dp"></LinearLayout>
+
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textColorHint="@color/registerdeselect">
+
+                    <com.example.yellowsoft.homeworkers.EditTextRegular
                         android:id="@+id/employer2"
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
@@ -387,10 +427,8 @@
                     <LinearLayout
                         android:id="@+id/fromdate_layout"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
-                        android:orientation="horizontal"
-                        android:visibility="visible">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                         <android.support.design.widget.TextInputLayout
                             android:layout_width="wrap_content"
@@ -399,16 +437,20 @@
                             android:layout_weight="1"
                             android:textColorHint="@color/registerdeselect">
 
-                            <com.example.yellowsoft.homeworkers.TextViewRegular
+                            <com.example.yellowsoft.homeworkers.EditTextRegular
                                 android:id="@+id/from2"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:background="@android:color/transparent"
                                 android:gravity="center_vertical"
+                                android:focusableInTouchMode="false"
                                 android:hint="FromDate"
                                 android:paddingRight="10dp"
                                 android:textColor="@color/white"
                                 android:textColorHint="@color/registerdeselect"
-                                android:textColorLink="@color/white" />
+                                android:textColorLink="@color/white"
+                                android:textSize="14sp" />
+
                         </android.support.design.widget.TextInputLayout>
 
 
@@ -419,6 +461,7 @@
                             android:padding="5dp"
                             android:src="@drawable/topbotarrow" />
                     </LinearLayout>
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -430,10 +473,8 @@
                     <LinearLayout
                         android:id="@+id/todate_layout"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
-                        android:orientation="horizontal"
-                        android:visibility="visible">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                         <android.support.design.widget.TextInputLayout
                             android:layout_width="wrap_content"
@@ -442,15 +483,20 @@
                             android:layout_weight="1"
                             android:textColorHint="@color/registerdeselect">
 
-                            <com.example.yellowsoft.homeworkers.TextViewRegular
+                            <com.example.yellowsoft.homeworkers.EditTextRegular
                                 android:id="@+id/todate2"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:background="@android:color/transparent"
+android:focusableInTouchMode="false"
                                 android:gravity="center_vertical"
-                                android:hint="To Date"
+                                android:hint="FromDate"
+                                android:paddingRight="10dp"
                                 android:textColor="@color/white"
                                 android:textColorHint="@color/registerdeselect"
-                                android:textColorLink="@color/white" />
+                                android:textColorLink="@color/white"
+                                android:textSize="14sp" />
+
                         </android.support.design.widget.TextInputLayout>
 
 
@@ -461,6 +507,7 @@
                             android:padding="5dp"
                             android:src="@drawable/topbotarrow" />
                     </LinearLayout>
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -633,10 +680,8 @@
                     <LinearLayout
                         android:id="@+id/fromdate_"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
-                        android:orientation="horizontal"
-                        android:visibility="visible">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                         <android.support.design.widget.TextInputLayout
                             android:layout_width="wrap_content"
@@ -645,16 +690,20 @@
                             android:layout_weight="1"
                             android:textColorHint="@color/registerdeselect">
 
-                            <com.example.yellowsoft.homeworkers.TextViewRegular
+                            <com.example.yellowsoft.homeworkers.EditTextRegular
                                 android:id="@+id/from3"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:background="@android:color/transparent"
+                                android:focusableInTouchMode="false"
                                 android:gravity="center_vertical"
                                 android:hint="FromDate"
                                 android:paddingRight="10dp"
                                 android:textColor="@color/white"
                                 android:textColorHint="@color/registerdeselect"
-                                android:textColorLink="@color/white" />
+                                android:textColorLink="@color/white"
+                                android:textSize="14sp" />
+
                         </android.support.design.widget.TextInputLayout>
 
 
@@ -665,6 +714,8 @@
                             android:padding="5dp"
                             android:src="@drawable/topbotarrow" />
                     </LinearLayout>
+
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -676,10 +727,8 @@
                     <LinearLayout
                         android:id="@+id/todate_"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
-                        android:orientation="horizontal"
-                        android:visibility="visible">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                         <android.support.design.widget.TextInputLayout
                             android:layout_width="wrap_content"
@@ -688,15 +737,20 @@
                             android:layout_weight="1"
                             android:textColorHint="@color/registerdeselect">
 
-                            <com.example.yellowsoft.homeworkers.TextViewRegular
+                            <com.example.yellowsoft.homeworkers.EditTextRegular
                                 android:id="@+id/todate3"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:background="@android:color/transparent"
                                 android:gravity="center_vertical"
-                                android:hint="To Date"
+                                android:focusableInTouchMode="false"
+                                android:hint="ToDate"
+                                android:paddingRight="10dp"
                                 android:textColor="@color/white"
                                 android:textColorHint="@color/registerdeselect"
-                                android:textColorLink="@color/white" />
+                                android:textColorLink="@color/white"
+                                android:textSize="14sp" />
+
                         </android.support.design.widget.TextInputLayout>
 
 
@@ -707,6 +761,7 @@
                             android:padding="5dp"
                             android:src="@drawable/topbotarrow" />
                     </LinearLayout>
+
 
                     <LinearLayout
                         android:layout_width="match_parent"

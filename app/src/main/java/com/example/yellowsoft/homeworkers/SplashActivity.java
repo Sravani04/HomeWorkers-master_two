@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
@@ -32,8 +33,7 @@ public class SplashActivity extends Activity {
                         try {
                             Session.SetEnWords(SplashActivity.this, result.get("en").getAsJsonObject().toString());
                             Session.SetArWords(SplashActivity.this, result.get("ar").getAsJsonObject().toString());
-                            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                            startActivity(intent);
+                            get_settings();
 //                            SharedPreferences sharedPreferences = getSharedPreferences("ShaPreferences", Context.MODE_PRIVATE);
 //                            SharedPreferences.Editor editor=sharedPreferences.edit();
 //                            boolean  firstTime=sharedPreferences.getBoolean("first", true);
@@ -48,6 +48,22 @@ public class SplashActivity extends Activity {
                         }catch (Exception e1){
                             e1.printStackTrace();
                         }
+                    }
+                });
+    }
+
+    public void get_settings(){
+        Ion.with(this)
+                .load(Session.SERVER_URL+"settings.php")
+                .asJsonObject()
+                .setCallback(new FutureCallback<JsonObject>() {
+                    @Override
+                    public void onCompleted(Exception e, JsonObject result) {
+                        Log.e("settings",result.toString());
+                        Session.SetSettings(SplashActivity.this,result.toString());
+                        Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                        startActivity(intent);
+
                     }
                 });
     }

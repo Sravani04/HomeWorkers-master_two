@@ -1,10 +1,12 @@
 package com.example.yellowsoft.homeworkers;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -12,6 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created by info on 16-07-2018.
@@ -27,7 +30,8 @@ public class StepThreeActivity extends Activity {
     ListView excellent_list,arabic_list,other_list,mslevel_list,typing_list;
     ArrayList<String> titles;
     String fname,mname,familyname,dob,pob,nationality,expirydate,article,address,telephone,mobile,email,position,doyouworknow,whencanyoustart,expectedsal,marital_status,
-    company_name,fullname,occupation,companyname,relationship,employed,current_employer,applied,relatives;
+    company_name,fullname,occupation,companyname,relationship,employed,current_employer,applied,relatives,contact,when;
+    LinearLayout select_graduate_date,select_date,select_date3,select_date4;
 
     EnglishLevelAdapter englishLevelAdapter;
 
@@ -81,6 +85,11 @@ public class StepThreeActivity extends Activity {
         arabic_layout = (LinearLayout) findViewById(R.id.arabic_layout);
         msoffice_layout = (LinearLayout) findViewById(R.id.msoffice_layout);
         typing_layout = (LinearLayout) findViewById(R.id.typing_layout);
+        select_graduate_date = (LinearLayout) findViewById(R.id.select_graduate_date);
+        select_date = (LinearLayout) findViewById(R.id.select_date);
+        select_date3 = (LinearLayout) findViewById(R.id.select_date3);
+        select_date4 = (LinearLayout) findViewById(R.id.select_date4);
+
 
 
         fname = getIntent().getStringExtra("fname");
@@ -109,6 +118,8 @@ public class StepThreeActivity extends Activity {
         current_employer = getIntent().getStringExtra("current_employer");
         applied = getIntent().getStringExtra("applied");
         relatives = getIntent().getStringExtra("relatives");
+        contact = getIntent().getStringExtra("contact");
+        when = getIntent().getStringExtra("when");
 
 
         englishLevelAdapter = new EnglishLevelAdapter(this,titles);
@@ -156,6 +167,13 @@ public class StepThreeActivity extends Activity {
             }
         });
 
+        arabiclevel_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                arabiclevel_popup.setVisibility(View.VISIBLE);
+            }
+        });
+
         arabic_close_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -179,6 +197,13 @@ public class StepThreeActivity extends Activity {
             }
         });
 
+        msofficelevel_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mslevel_popup.setVisibility(View.VISIBLE);
+            }
+        });
+
         mslevel_close_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -195,6 +220,13 @@ public class StepThreeActivity extends Activity {
         });
 
         typing_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                typing_popup.setVisibility(View.VISIBLE);
+            }
+        });
+
+        typing_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 typing_popup.setVisibility(View.VISIBLE);
@@ -232,6 +264,69 @@ public class StepThreeActivity extends Activity {
             }
         });
 
+        select_graduate_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                datePicker();
+            }
+        });
+
+        select_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                datePicker1();
+            }
+        });
+
+        select_date3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                datePicker2();
+            }
+        });
+
+        select_date4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                datePicker3();
+            }
+        });
+
+        graduateddate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                datePicker();
+            }
+        });
+
+        date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                datePicker1();
+            }
+        });
+
+        date3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                datePicker2();
+            }
+        });
+
+        date4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                datePicker3();
+            }
+        });
+
+        excellent_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                excellent_popup.setVisibility(View.VISIBLE);
+            }
+        });
+
         next_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -262,6 +357,8 @@ public class StepThreeActivity extends Activity {
                 intent.putExtra("current_employer",current_employer);
                 intent.putExtra("applied",applied);
                 intent.putExtra("relatives",relatives);
+                intent.putExtra("contact",contact);
+                intent.putExtra("when",when);
                 intent.putExtra("school_first",schoolname.getText().toString());
                 intent.putExtra("years_first",years.getText().toString());
                 intent.putExtra("graduated_date_first",graduateddate.getText().toString());
@@ -285,5 +382,81 @@ public class StepThreeActivity extends Activity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void datePicker(){
+        final Calendar c = Calendar.getInstance();
+        int mYear = c.get(Calendar.YEAR);
+        int mMonth = c.get(Calendar.MONTH);
+        int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                new DatePickerDialog.OnDateSetListener() {
+
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+                        String date_time = dayOfMonth + "-" + (monthOfYear + 1) + "-" + year;
+                        graduateddate.setText(date_time);
+                    }
+                }, mYear, mMonth, mDay);
+        datePickerDialog.show();
+    }
+
+    private void datePicker1(){
+        final Calendar c = Calendar.getInstance();
+        int mYear = c.get(Calendar.YEAR);
+        int mMonth = c.get(Calendar.MONTH);
+        int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                new DatePickerDialog.OnDateSetListener() {
+
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+                        String date_time = dayOfMonth + "-" + (monthOfYear + 1) + "-" + year;
+                        date.setText(date_time);
+                    }
+                }, mYear, mMonth, mDay);
+        datePickerDialog.show();
+    }
+
+    private void datePicker2(){
+        final Calendar c = Calendar.getInstance();
+        int mYear = c.get(Calendar.YEAR);
+        int mMonth = c.get(Calendar.MONTH);
+        int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                new DatePickerDialog.OnDateSetListener() {
+
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+                        String date_time = dayOfMonth + "-" + (monthOfYear + 1) + "-" + year;
+                        date3.setText(date_time);
+                    }
+                }, mYear, mMonth, mDay);
+        datePickerDialog.show();
+    }
+
+    private void datePicker3(){
+        final Calendar c = Calendar.getInstance();
+        int mYear = c.get(Calendar.YEAR);
+        int mMonth = c.get(Calendar.MONTH);
+        int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                new DatePickerDialog.OnDateSetListener() {
+
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+                        String date_time = dayOfMonth + "-" + (monthOfYear + 1) + "-" + year;
+                        date4.setText(date_time);
+                    }
+                }, mYear, mMonth, mDay);
+        datePickerDialog.show();
     }
 }

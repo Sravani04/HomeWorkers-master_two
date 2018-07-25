@@ -60,68 +60,72 @@
                     android:text="Enter Manpower Request"
                     android:textColor="@color/grey" />
 
-                <LinearLayout
-                    android:id="@+id/category_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal"
-                    android:visibility="visible">
 
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="1"
-                        android:textColorHint="@color/white">
+                    <LinearLayout
+                        android:id="@+id/category_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-                        <com.example.yellowsoft.homeworkers.TextViewRegular
-                            android:id="@+id/category_option"
+                        <android.support.design.widget.TextInputLayout
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:gravity="center_vertical"
-                            android:hint="Select Categories"
-                            android:paddingRight="10dp"
-                            android:textColor="@color/white"
-                            android:textColorHint="@color/registerdeselect"
-                            android:textColorLink="@color/white" />
-                    </android.support.design.widget.TextInputLayout>
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1"
+                            android:textColorHint="@color/registerdeselect">
+
+                            <com.example.yellowsoft.homeworkers.EditTextRegular
+                                android:id="@+id/category_option"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@android:color/transparent"
+                                android:focusableInTouchMode="false"
+                                android:gravity="center_vertical"
+                                android:hint="Select Categories"
+                                android:paddingRight="10dp"
+                                android:textColor="@color/white"
+                                android:textColorHint="@color/registerdeselect"
+                                android:textColorLink="@color/white"
+                                android:textSize="14sp" />
+
+                        </android.support.design.widget.TextInputLayout>
 
 
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_margin="10dp"
-                        android:padding="5dp"
-                        android:src="@drawable/topbotarrow" />
-                </LinearLayout>
-
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_margin="10dp"
+                            android:padding="5dp"
+                            android:src="@drawable/topbotarrow" />
+                    </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/workers_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal"
-                    android:visibility="visible">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:layout_weight="1"
-                        android:textColorHint="@color/white">
+                        android:textColorHint="@color/registerdeselect">
 
-                        <com.example.yellowsoft.homeworkers.TextViewRegular
+                        <com.example.yellowsoft.homeworkers.EditTextRegular
                             android:id="@+id/workers_option"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:focusableInTouchMode="false"
                             android:gravity="center_vertical"
                             android:hint="No. of Workers"
                             android:paddingRight="10dp"
                             android:textColor="@color/white"
                             android:textColorHint="@color/registerdeselect"
-                            android:textColorLink="@color/white" />
+                            android:textColorLink="@color/white"
+                            android:textSize="14sp" />
+
                     </android.support.design.widget.TextInputLayout>
 
 
@@ -132,6 +136,9 @@
                         android:padding="5dp"
                         android:src="@drawable/topbotarrow" />
                 </LinearLayout>
+
+
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -142,7 +149,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:textColorHint="@color/white">
+                        android:textColorHint="@color/registerdeselect">
 
                         <com.example.yellowsoft.homeworkers.EditTextRegular
                             android:id="@+id/salary"
@@ -172,7 +179,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:textColorHint="@color/white">
+                        android:textColorHint="@color/registerdeselect">
 
                         <com.example.yellowsoft.homeworkers.EditTextRegular
                             android:id="@+id/benefits"
@@ -208,7 +215,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/rou_rect"
+                    android:background="@drawable/white_fully_rounded_rect"
                     android:gravity="center">
 
                     <com.example.yellowsoft.homeworkers.TextViewRegular
@@ -218,7 +225,7 @@
 
                         android:gravity="center_vertical|center_horizontal"
                         android:text="Upload your Company Papers"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/black"
                         android:textSize="15sp"
                         android:textStyle="bold" />
                 </LinearLayout>

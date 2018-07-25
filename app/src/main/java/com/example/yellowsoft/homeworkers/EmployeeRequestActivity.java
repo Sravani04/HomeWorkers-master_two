@@ -26,8 +26,8 @@ import java.util.Calendar;
 
 public class EmployeeRequestActivity extends Activity {
     ImageView back_btn;
-    EditText name,middle_name,place_of_birth,article_number,address,telephone_number,mobile_number,email,start,expected_sal,family_name;
-    TextView nationality_option,expirydate_option,post_option,marital_status_option,next_btn,dateofbirth_option;
+    EditText name,middle_name,place_of_birth,article_number,address,telephone_number,mobile_number,email,expected_sal,family_name;
+    EditText nationality_option,expirydate_option,post_option,marital_status_option,dateofbirth_option,start;
     LinearLayout nationality_popup,post_popup,marital_status_popup,nationality_layout,post_layout,status_layout;
     ImageView nationality_close_btn,status_close_btn,post_close_btn;
     ListView nationaloty_list,marital_status_list,post_list;
@@ -39,7 +39,7 @@ public class EmployeeRequestActivity extends Activity {
     JobTypesAdapter jobTypesAdapter;
     LinearLayout yes,no;
     ImageView yes_checkbox,no_checkbox;
-    TextView yes_option,no_option;
+    TextView yes_option,no_option,next_btn;
     String checked;
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -59,10 +59,11 @@ public class EmployeeRequestActivity extends Activity {
         nationality_layout = (LinearLayout) findViewById(R.id.nationality_layout);
         post_layout = (LinearLayout) findViewById(R.id.post_layout);
         status_layout = (LinearLayout) findViewById(R.id.status_layout);
-        yes = (LinearLayout) findViewById(R.id.yes);
-        no = (LinearLayout) findViewById(R.id.no);
-        yes_checkbox = (ImageView) findViewById(R.id.yes_checkbox);
-        no_checkbox = (ImageView) findViewById(R.id.no_checkbox);
+        start = (EditText) findViewById(R.id.start);
+       // yes = (LinearLayout) findViewById(R.id.yes);
+        //no = (LinearLayout) findViewById(R.id.no);
+       // yes_checkbox = (ImageView) findViewById(R.id.yes_checkbox);
+       // no_checkbox = (ImageView) findViewById(R.id.no_checkbox);
         yes_option = (TextView) findViewById(R.id.yes_option);
         no_option = (TextView) findViewById(R.id.no_option);
         family_name = (EditText) findViewById(R.id.family_name);
@@ -78,11 +79,18 @@ public class EmployeeRequestActivity extends Activity {
         martialStatusAdapter = new MartialStatusAdapter(this,status);
         marital_status_list.setAdapter(martialStatusAdapter);
 
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                datePicker3();
+            }
+        });
+
 
 
         name = (EditText) findViewById(R.id.name);
         middle_name = (EditText) findViewById(R.id.middle_name);
-        dateofbirth_option = (TextView) findViewById(R.id.dateofbirth_option);
+        dateofbirth_option = (EditText) findViewById(R.id.dateofbirth_option);
         place_of_birth = (EditText) findViewById(R.id.place_of_birth);
         article_number = (EditText) findViewById(R.id.article_number);
         address = (EditText) findViewById(R.id.address);
@@ -90,10 +98,10 @@ public class EmployeeRequestActivity extends Activity {
         mobile_number = (EditText) findViewById(R.id.mobile_number);
         email = (EditText) findViewById(R.id.email);
         start = (EditText) findViewById(R.id.start);
-        nationality_option = (TextView) findViewById(R.id.nationality_option);
-        expirydate_option = (TextView) findViewById(R.id.expirydate_option);
-        post_option = (TextView) findViewById(R.id.post_option);
-        marital_status_option = (TextView) findViewById(R.id.marital_status_option);
+        nationality_option = (EditText) findViewById(R.id.nationality_option);
+        expirydate_option = (EditText) findViewById(R.id.expirydate_option);
+        post_option = (EditText) findViewById(R.id.post_option);
+        marital_status_option = (EditText) findViewById(R.id.marital_status_option);
         nationality_popup = (LinearLayout) findViewById(R.id.nationality_popup);
         nationality_close_btn = (ImageView) findViewById(R.id.nationality_close_btn);
         nationaloty_list = (ListView) findViewById(R.id.nationality_list);
@@ -123,6 +131,13 @@ public class EmployeeRequestActivity extends Activity {
             }
         });
 
+        nationality_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nationality_popup.setVisibility(View.VISIBLE);
+            }
+        });
+
         nationality_close_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -139,6 +154,13 @@ public class EmployeeRequestActivity extends Activity {
         });
 
         post_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                post_popup.setVisibility(View.VISIBLE);
+            }
+        });
+
+        post_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 post_popup.setVisibility(View.VISIBLE);
@@ -167,6 +189,14 @@ public class EmployeeRequestActivity extends Activity {
             }
         });
 
+
+        marital_status_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                marital_status_popup.setVisibility(View.VISIBLE);
+            }
+        });
+
         status_close_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -182,32 +212,32 @@ public class EmployeeRequestActivity extends Activity {
             }
         });
 
-        yes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (yes_checkbox.isEnabled()){
-                    yes_checkbox.setImageResource(R.drawable.checked);
-                    no_checkbox.setImageResource(R.drawable.unchecked);
-                    checked="1";
-                }else {
-                    yes_checkbox.setImageResource(R.drawable.unchecked);
-                }
-            }
-        });
-
-        no.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (no_checkbox.isEnabled()){
-                    no_checkbox.setImageResource(R.drawable.checked);
-                    yes_checkbox.setImageResource(R.drawable.unchecked);
-                    checked="2";
-                }else {
-                    no_checkbox.setImageResource(R.drawable.unchecked);
-
-                }
-            }
-        });
+//        yes.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (yes_checkbox.isEnabled()){
+//                    yes_checkbox.setImageResource(R.drawable.checked);
+//                    no_checkbox.setImageResource(R.drawable.unchecked);
+//                    checked="1";
+//                }else {
+//                    yes_checkbox.setImageResource(R.drawable.unchecked);
+//                }
+//            }
+//        });
+//
+//        no.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (no_checkbox.isEnabled()){
+//                    no_checkbox.setImageResource(R.drawable.checked);
+//                    yes_checkbox.setImageResource(R.drawable.unchecked);
+//                    checked="2";
+//                }else {
+//                    no_checkbox.setImageResource(R.drawable.unchecked);
+//
+//                }
+//            }
+//        });
 
         next_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -271,6 +301,25 @@ public class EmployeeRequestActivity extends Activity {
 
                         String date_time = dayOfMonth + "-" + (monthOfYear + 1) + "-" + year;
                         expirydate_option.setText(date_time);
+                    }
+                }, mYear, mMonth, mDay);
+        datePickerDialog.show();
+    }
+
+    private void datePicker3(){
+        final Calendar c = Calendar.getInstance();
+        int mYear = c.get(Calendar.YEAR);
+        int mMonth = c.get(Calendar.MONTH);
+        int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                new DatePickerDialog.OnDateSetListener() {
+
+                    @Override
+                    public void onDateSet(DatePicker view, int year,int monthOfYear, int dayOfMonth) {
+
+                        String date_time = dayOfMonth + "-" + (monthOfYear + 1) + "-" + year;
+                        start.setText(date_time);
                     }
                 }, mYear, mMonth, mDay);
         datePickerDialog.show();

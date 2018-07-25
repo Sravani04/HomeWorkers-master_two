@@ -26,7 +26,7 @@ public class CorporateNextActivity extends Activity {
     TextView next_btn;
     String company_name,number,address,contact_person;
     LinearLayout category_layout,workers_layout,category_popup,worker_popup;
-    TextView category_option,workers_option;
+    EditText category_option,workers_option;
     EditText salary,benefits;
     ImageView category_close_btn,worker_close_btn;
     ListView categories_list,workers_list;
@@ -52,8 +52,8 @@ public class CorporateNextActivity extends Activity {
         next_btn = (TextView) findViewById(R.id.next_btn);
         category_layout = (LinearLayout) findViewById(R.id.category_layout);
         workers_layout = (LinearLayout) findViewById(R.id.workers_layout);
-        category_option = (TextView) findViewById(R.id.category_option);
-        workers_option = (TextView) findViewById(R.id.workers_option);
+        category_option = (EditText) findViewById(R.id.category_option);
+        workers_option = (EditText) findViewById(R.id.workers_option);
         category_popup=(LinearLayout) findViewById(R.id.category_popup);
         category_close_btn = (ImageView) findViewById(R.id.category_close_btn);
         categories_list = (ListView) findViewById(R.id.categories_list);

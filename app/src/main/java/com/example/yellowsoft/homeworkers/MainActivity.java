@@ -279,7 +279,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        get_settings();
+        //get_settings();
     }
 
 
@@ -323,5 +323,8 @@ public class MainActivity extends AppCompatActivity {
             back_pressed = System.currentTimeMillis();
         }
     }
+
+
+
 
 }

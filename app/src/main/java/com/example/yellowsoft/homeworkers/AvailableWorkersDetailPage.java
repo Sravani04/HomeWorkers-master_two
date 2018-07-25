@@ -26,13 +26,14 @@ public class AvailableWorkersDetailPage extends Activity {
     AvailableWorkers availableWorkers;
     TextView call_btn,email_btn;
     int MY_PERMISSIONS_REQUEST_CALL_PHONE;
-    TextView st_exp;
+    TextView st_exp,experience;
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.availableworkers_detailpage);
         availableWorkers = (AvailableWorkers) getIntent().getSerializableExtra("aw");
         back_btn = (ImageView) findViewById(R.id.back_btn);
+        experience = (TextView) findViewById(R.id.experience);
         ImageView imageView = (ImageView) findViewById(R.id.aw_image);
         TextView aw_id = (TextView) findViewById(R.id.aw_app_id);
         TextView aw_age = (TextView) findViewById(R.id.aw_age);
@@ -58,6 +59,7 @@ public class AvailableWorkersDetailPage extends Activity {
         aw_sal.setText(availableWorkers.salary + " KD ");
         aw_amt.setText(availableWorkers.amount + " KD ");
         name.setText("Applicant Name,"+" "+ availableWorkers.name);
+        experience.setText(availableWorkers.experience);
 
 
         st_id.setText(Session.GetWord(this,"Applicant ID"));
