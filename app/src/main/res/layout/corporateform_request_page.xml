@@ -74,6 +74,8 @@
                         android:background="@android:color/transparent"
                         android:gravity="center_vertical"
                         android:hint="Company Name"
+                        android:focusable="false"
+                        android:focusableInTouchMode="true"
                         android:inputType="textPersonName"
                         android:textColor="@color/white"
                         android:textColorHint="@color/registerdeselect"

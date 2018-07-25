@@ -294,6 +294,13 @@ public class PartTimeWorkersActivity extends Activity {
             }
         });
 
+        worker_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                get_quantity();
+            }
+        });
+
 
 
 
@@ -600,9 +607,6 @@ public class PartTimeWorkersActivity extends Activity {
             Toast.makeText(PartTimeWorkersActivity.this,"Please Enter Shift",Toast.LENGTH_SHORT).show();
         }else if (workers_string.equals("")) {
             Toast.makeText(PartTimeWorkersActivity.this, "Please Select Day", Toast.LENGTH_SHORT).show();
-           if (day_string.equals(""))
-            Toast.makeText(PartTimeWorkersActivity.this, "Please Select Shift", Toast.LENGTH_SHORT).show();
-            worker_option.requestFocus();
         }else if (amount_string.equals("")){
             Toast.makeText(PartTimeWorkersActivity.this,"Please Enter Amount",Toast.LENGTH_SHORT).show();
             amt_btn.requestFocus();
