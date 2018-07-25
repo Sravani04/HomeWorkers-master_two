@@ -81,30 +81,30 @@ public class PartTimeWorkersActivity extends Activity {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         areasfrom_api = new ArrayList<>();
         servicesfrom_api = new ArrayList<>();
-        st_area = (TextView) findViewById(R.id.st_area);
-        st_day = (TextView) findViewById(R.id.st_day);
-        st_quantity = (TextView) findViewById(R.id.st_quantity);
+        //st_area = (TextView) findViewById(R.id.st_area);
+        //st_day = (TextView) findViewById(R.id.st_day);
+        //st_quantity = (TextView) findViewById(R.id.st_quantity);
         st_shift = (TextView) findViewById(R.id.st_shift);
         st_block = (TextView) findViewById(R.id.st_block);
         st_judda = (TextView) findViewById(R.id.st_judda);
         st_street = (TextView) findViewById(R.id.st_street);
         st_house = (TextView) findViewById(R.id.st_house);
-        st_sr = (TextView) findViewById(R.id.st_sr);
+       // st_sr = (TextView) findViewById(R.id.st_sr);
         st_evening = (TextView) findViewById(R.id.st_evening);
         st_morning = (TextView) findViewById(R.id.st_morning);
 
 
 
-        st_area.setText(Session.GetWord(this,"Area"));
-        st_day.setText(Session.GetWord(this,"Day"));
-        st_quantity.setText(Session.GetWord(this,"Quantity"));
+        //st_area.setText(Session.GetWord(this,"Area"));
+        //st_day.setText(Session.GetWord(this,"Day"));
+       // st_quantity.setText(Session.GetWord(this,"Quantity"));
         st_shift.setText(Session.GetWord(this,"Choose Shift"));
        // st_address.setText(Session.GetWord(this,"Enter your address"));
         st_block.setText(Session.GetWord(this,"Block"));
         st_street.setText(Session.GetWord(this,"Street"));
         st_judda.setText(Session.GetWord(this,"Judda"));
         st_house.setText(Session.GetWord(this,"House"));
-        st_sr.setText(Session.GetWord(this,"Special Request"));
+       // st_sr.setText(Session.GetWord(this,"Special Request"));
         st_evening.setText(Session.GetWord(this,"Evening Shift"));
         st_morning.setText(Session.GetWord(this,"Morning Shift"));
 //        day_option.setHint(Session.GetWord(this,"Select the day"));
@@ -122,7 +122,7 @@ public class PartTimeWorkersActivity extends Activity {
         block = (EditText) findViewById(R.id.block);
         street = (EditText) findViewById(R.id.street);
         judda = (EditText) findViewById(R.id.judda);
-        st_address = (TextView) findViewById(R.id.st_address);
+      // st_address = (TextView) findViewById(R.id.st_address);
         house = (EditText) findViewById(R.id.house);
         message = (EditText) findViewById(R.id.message);
         listView = (ListView) findViewById(R.id.areas_list);
@@ -241,10 +241,30 @@ public class PartTimeWorkersActivity extends Activity {
             @Override
             public void onClick(View view) {
                 area_popup.setVisibility(View.VISIBLE);
+                Animation anim = AnimationUtils.loadAnimation(PartTimeWorkersActivity.this, R.anim.myanim);
+                area_popup.startAnimation(anim);
+            }
+        });
+
+        area_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                area_popup.setVisibility(View.VISIBLE);
+                Animation anim = AnimationUtils.loadAnimation(PartTimeWorkersActivity.this, R.anim.myanim);
+                area_popup.startAnimation(anim);
             }
         });
 
         select_service.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                service_popup.setVisibility(View.VISIBLE);
+                Animation anim = AnimationUtils.loadAnimation(PartTimeWorkersActivity.this, R.anim.myanim);
+                service_popup.startAnimation(anim);
+            }
+        });
+
+        service_popup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 service_popup.setVisibility(View.VISIBLE);
@@ -343,6 +363,14 @@ public class PartTimeWorkersActivity extends Activity {
 //                },mYear, mMonth, mDay);
 //                mDatePicker.setTitle("Select date");
 //                mDatePicker.show();
+            }
+        });
+
+        day_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Dialog dialog = onDayChoice();
+                dialog.show();
             }
         });
 
@@ -570,8 +598,10 @@ public class PartTimeWorkersActivity extends Activity {
             day_option.requestFocus();
         }else if (shift_string.equals("")){
             Toast.makeText(PartTimeWorkersActivity.this,"Please Enter Shift",Toast.LENGTH_SHORT).show();
-        }else if (workers_string.equals("")){
-            Toast.makeText(PartTimeWorkersActivity.this,"Please Enter Workers",Toast.LENGTH_SHORT).show();
+        }else if (workers_string.equals("")) {
+            Toast.makeText(PartTimeWorkersActivity.this, "Please Select Day", Toast.LENGTH_SHORT).show();
+           if (day_string.equals(""))
+            Toast.makeText(PartTimeWorkersActivity.this, "Please Select Shift", Toast.LENGTH_SHORT).show();
             worker_option.requestFocus();
         }else if (amount_string.equals("")){
             Toast.makeText(PartTimeWorkersActivity.this,"Please Enter Amount",Toast.LENGTH_SHORT).show();
