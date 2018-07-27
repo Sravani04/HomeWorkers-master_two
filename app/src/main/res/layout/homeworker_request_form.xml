@@ -376,7 +376,7 @@
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColorLink="@color/grey">
+                    android:theme="@style/TextLabel">
 
                     <com.example.yellowsoft.homeworkers.EditTextRegular
                         android:id="@+id/phone"
@@ -408,7 +408,7 @@
                     android:layout_height="50dp"
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
-                    android:textColorHint="@color/registerdeselect">
+                    android:theme="@style/TextLabel">
 
                     <com.example.yellowsoft.homeworkers.EditTextRegular
                         android:id="@+id/charges"

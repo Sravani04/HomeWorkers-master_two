@@ -145,6 +145,13 @@ public class EmployeeRequestActivity extends Activity {
             }
         });
 
+        nationality_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nationality_popup.setVisibility(View.VISIBLE);
+            }
+        });
+
         nationaloty_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -209,6 +216,13 @@ public class EmployeeRequestActivity extends Activity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 marital_status_popup.setVisibility(View.GONE);
                 marital_status_option.setText(status.get(i));
+            }
+        });
+
+        marital_status_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                marital_status_popup.setVisibility(View.VISIBLE);
             }
         });
 

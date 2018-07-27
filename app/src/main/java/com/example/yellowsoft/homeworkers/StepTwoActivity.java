@@ -145,6 +145,7 @@ public class StepTwoActivity extends Activity {
         });
 
 
+
         no_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -226,6 +227,8 @@ public class StepTwoActivity extends Activity {
                  datePicker();
              }
          });
+
+
 
 
 

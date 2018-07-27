@@ -118,6 +118,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        corporate_popup.setVisibility(View.GONE);
+
         menu_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -283,6 +285,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void onBackPressed(){
+        Intent a = new Intent(Intent.ACTION_MAIN);
+        a.addCategory(Intent.CATEGORY_HOME);
+        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(a);
+
+    }
+
+
     public void get_settings(){
         Ion.with(this)
                 .load(Session.SERVER_URL+"settings.php")
@@ -311,18 +322,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-    @Override
-    public void onBackPressed()
-    {
-        // code here to show dialog
-
-        if (back_pressed + 10000 > System.currentTimeMillis()){
-            super.onBackPressed();}
-        else{
-            back_pressed = System.currentTimeMillis();
-        }
-    }
 
 
 

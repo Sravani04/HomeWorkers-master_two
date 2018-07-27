@@ -130,7 +130,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:textColorHint="@color/registerdeselect">
+                    android:theme="@style/TextLabel">
 
                     <com.example.yellowsoft.homeworkers.EditTextRegular
                         android:id="@+id/company_name"
@@ -242,7 +242,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:textColorHint="@color/registerdeselect">
+                        android:theme="@style/TextLabel">
 
                         <com.example.yellowsoft.homeworkers.EditTextRegular
                             android:id="@+id/full_name"
@@ -272,7 +272,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:textColorHint="@color/registerdeselect">
+                        android:theme="@style/TextLabel">
 
                         <com.example.yellowsoft.homeworkers.EditTextRegular
                             android:id="@+id/occupation"
@@ -302,7 +302,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:textColorHint="@color/registerdeselect">
+                        android:theme="@style/TextLabel">
 
                         <com.example.yellowsoft.homeworkers.EditTextRegular
                             android:id="@+id/companyname"
@@ -332,7 +332,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:textColorHint="@color/registerdeselect">
+                        android:theme="@style/TextLabel">
 
                         <com.example.yellowsoft.homeworkers.EditTextRegular
                             android:id="@+id/contact"
@@ -563,7 +563,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:textColorHint="@color/registerdeselect">
+                    android:theme="@style/TextLabel">
 
                     <com.example.yellowsoft.homeworkers.EditTextRegular
                         android:id="@+id/relationship"

@@ -60,7 +60,7 @@ public class AddAvailableWorkersActivity extends Activity {
     LinearLayout male,female;
     ImageView male_checkbox,female_checkbox;
     TextView male_option,female_option;
-    String type;
+    String type,service_charge;
     int ASK_MULTIPLE_PERMISSION_REQUEST_CODE;
 
     @Override
@@ -258,7 +258,7 @@ public class AddAvailableWorkersActivity extends Activity {
             JsonParser jsonParser = new JsonParser();
             if (!Session.GetSettings(AddAvailableWorkersActivity.this).equals("-1")) {
                 JsonObject parse = (JsonObject) jsonParser.parse(Session.GetSettings(AddAvailableWorkersActivity.this));
-                String service_charge = parse.get("avail_amount").getAsString();
+                 service_charge = parse.get("avail_amount").getAsString();
                 amt_btn.setText(service_charge+" KD ");
             }
         }catch (Exception e1){
@@ -283,12 +283,12 @@ public class AddAvailableWorkersActivity extends Activity {
                     public void onClick(DialogInterface dialog, int item) {
                         if(items[item].equals("camera")){
                             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                            startActivityForResult(intent,0);
+                            startActivityForResult(intent,1);
 
                         }else if(items[item].equals("gallery")){
                             Intent pickPhoto = new Intent(Intent.ACTION_PICK,
                                     MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                            startActivityForResult(pickPhoto,1);
+                            startActivityForResult(pickPhoto,2);
                         }
                     }
                 });
@@ -334,10 +334,7 @@ public class AddAvailableWorkersActivity extends Activity {
                 break;
             case 3:
 
-            if (requestCode != 1) {
-                return;
-            }
-            if (resultCode == -1) {
+            if (resultCode == RESULT_OK) {
                 if (imageReturnedIntent != null && imageReturnedIntent.hasExtra("message")) {
                     msg = imageReturnedIntent.getExtras().getString("message");
                     Log.e("toast", msg);
@@ -564,7 +561,7 @@ public class AddAvailableWorkersActivity extends Activity {
                                     req_id = result.get("id").getAsString();
                                     Toast.makeText(AddAvailableWorkersActivity.this, result.get("message").getAsString(), Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(AddAvailableWorkersActivity.this, PaymentPage.class);
-                                    intent.putExtra("amount", amt_btn.getText().toString());
+                                    intent.putExtra("amount", service_charge);
                                     AddAvailableWorkersActivity.this.startActivityForResult(intent, 3);
                                 } else {
                                     Toast.makeText(AddAvailableWorkersActivity.this, result.get("message").getAsString(), Toast.LENGTH_SHORT).show();

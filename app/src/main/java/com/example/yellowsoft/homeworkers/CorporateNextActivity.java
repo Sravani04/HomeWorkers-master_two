@@ -98,6 +98,13 @@ public class CorporateNextActivity extends Activity {
             }
         });
 
+        category_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                category_popup.setVisibility(View.VISIBLE);
+            }
+        });
+
         workers_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -117,6 +124,13 @@ public class CorporateNextActivity extends Activity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 worker_popup.setVisibility(View.GONE);
                 workers_option.setText(numbers.get(i));
+            }
+        });
+
+        workers_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                worker_popup.setVisibility(View.VISIBLE);
             }
         });
 

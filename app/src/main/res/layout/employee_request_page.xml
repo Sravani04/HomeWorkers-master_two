@@ -63,7 +63,7 @@
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColorHint="@color/registerdeselect">
+                    android:theme="@style/TextLabel">
 
                     <com.example.yellowsoft.homeworkers.EditTextRegular
                         android:id="@+id/name"
@@ -94,7 +94,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:textColorHint="@color/registerdeselect">
+                    android:theme="@style/TextLabel">
 
                     <com.example.yellowsoft.homeworkers.EditTextRegular
                         android:id="@+id/middle_name"
@@ -125,7 +125,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:textColorHint="@color/registerdeselect">
+                    android:theme="@style/TextLabel">
 
                     <com.example.yellowsoft.homeworkers.EditTextRegular
                         android:id="@+id/family_name"
@@ -161,7 +161,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:layout_weight="1"
-                        android:textColorHint="@color/registerdeselect">
+                        android:theme="@style/TextLabel">
 
                         <com.example.yellowsoft.homeworkers.EditTextRegular
                             android:id="@+id/dateofbirth_option"
@@ -205,7 +205,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:layout_weight="1"
-                        android:textColorHint="@color/registerdeselect">
+                        android:theme="@style/TextLabel">
 
                         <com.example.yellowsoft.homeworkers.EditTextRegular
                             android:id="@+id/place_of_birth"
@@ -251,6 +251,7 @@
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
                             android:gravity="center_vertical"
+                            android:focusable="false"
                             android:hint="Nationality"
                             android:paddingRight="10dp"
                             android:textColor="@color/white"
@@ -296,6 +297,7 @@
                             android:background="@android:color/transparent"
                             android:gravity="center_vertical"
                             android:hint="Residency Expire Datte"
+                            android:focusable="false"
                             android:paddingRight="10dp"
                             android:textColor="@color/white"
                             android:textColorHint="@color/registerdeselect"
@@ -327,7 +329,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:textColorHint="@color/registerdeselect">
+                    android:theme="@style/TextLabel">
 
                     <com.example.yellowsoft.homeworkers.EditTextRegular
                         android:id="@+id/article_number"
@@ -357,7 +359,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:textColorHint="@color/registerdeselect">
+                    android:theme="@style/TextLabel">
 
                     <com.example.yellowsoft.homeworkers.EditTextRegular
                         android:id="@+id/address"
@@ -388,7 +390,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:textColorHint="@color/registerdeselect">
+                    android:theme="@style/TextLabel">
 
                     <com.example.yellowsoft.homeworkers.EditTextRegular
                         android:id="@+id/telephone_number"
@@ -419,7 +421,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:textColorHint="@color/registerdeselect">
+                    android:theme="@style/TextLabel">
 
                     <com.example.yellowsoft.homeworkers.EditTextRegular
                         android:id="@+id/mobile_number"
@@ -450,7 +452,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:textColorHint="@color/registerdeselect">
+                    android:theme="@style/TextLabel">
 
                     <com.example.yellowsoft.homeworkers.EditTextRegular
                         android:id="@+id/email"
@@ -573,7 +575,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:textColorHint="@color/registerdeselect">
+                    android:theme="@style/TextLabel">
 
                     <com.example.yellowsoft.homeworkers.EditTextRegular
                         android:id="@+id/expected_sal"
@@ -618,6 +620,7 @@
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
                             android:gravity="center_vertical"
+                            android:focusable="false"
                             android:hint="MatitalStatus"
                             android:paddingRight="10dp"
                             android:textColor="@color/white"
