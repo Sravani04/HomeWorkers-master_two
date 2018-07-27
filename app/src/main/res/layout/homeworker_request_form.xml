@@ -384,10 +384,11 @@
                         android:layout_height="40dp"
                         android:layout_marginTop="5dp"
                         android:background="@android:color/transparent"
+                        android:focusableInTouchMode="true"
                         android:gravity="center_vertical"
                         android:hint="PhoneNumber"
-                        android:focusableInTouchMode="true"
                         android:inputType="number"
+                        android:maxLength="8"
                         android:textColor="#FFFFFF"
                         android:textColorHint="@android:color/darker_gray"
                         android:textColorLink="@color/grey"
@@ -413,13 +414,14 @@
                         android:id="@+id/charges"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:focusableInTouchMode="false"
                         android:gravity="center_vertical"
                         android:hint="Service Charges"
-                        android:textSize="14sp"
                         android:textColor="@color/white"
-                        android:focusableInTouchMode="false"
                         android:textColorHint="@color/registerdeselect"
-                        android:textColorLink="@color/white" />
+                        android:textColorLink="@color/white"
+                        android:textSize="14sp" />
 
                 </android.support.design.widget.TextInputLayout>
 
