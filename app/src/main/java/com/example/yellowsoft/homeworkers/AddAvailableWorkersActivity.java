@@ -1,14 +1,18 @@
 package com.example.yellowsoft.homeworkers;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -57,6 +61,7 @@ public class AddAvailableWorkersActivity extends Activity {
     ImageView male_checkbox,female_checkbox;
     TextView male_option,female_option;
     String type;
+    int ASK_MULTIPLE_PERMISSION_REQUEST_CODE;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -270,57 +275,25 @@ public class AddAvailableWorkersActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Log.e("is","coming or not");
-                final CharSequence[] options = { "Take Photo", "Choose from Gallery","Cancel" };
-
-
-
+                final CharSequence[] items = {"camera","gallery"};
                 AlertDialog.Builder builder = new AlertDialog.Builder(AddAvailableWorkersActivity.this);
-
-                builder.setTitle("Add Photo!");
-
-                builder.setItems(options, new DialogInterface.OnClickListener() {
-
+                builder.setTitle("select_image");
+                builder.setItems(items, new DialogInterface.OnClickListener() {
                     @Override
-
                     public void onClick(DialogInterface dialog, int item) {
-
-                        if (options[item].equals("Take Photo"))
-
-                        {
-
+                        if(items[item].equals("camera")){
                             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                            startActivityForResult(intent,0);
 
-                            File f = new File(android.os.Environment.getExternalStorageDirectory(), "temp.jpg");
-
-                            intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
-
-                            startActivityForResult(intent, 1);
-
+                        }else if(items[item].equals("gallery")){
+                            Intent pickPhoto = new Intent(Intent.ACTION_PICK,
+                                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                            startActivityForResult(pickPhoto,1);
                         }
-
-                        else if (options[item].equals("Choose from Gallery"))
-
-                        {
-
-                            Intent intent = new   Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-
-                            startActivityForResult(intent, 2);
-
-
-
-                        }
-
-                        else if (options[item].equals("Cancel")) {
-
-                            dialog.dismiss();
-
-                        }
-
                     }
-
                 });
-
-                builder.show();
+                AlertDialog alert = builder.create();
+                alert.show();
             }
         });
 
@@ -352,9 +325,7 @@ public class AddAvailableWorkersActivity extends Activity {
             case 2:
                 if(resultCode == RESULT_OK){
                     Uri selectedImage = imageReturnedIntent.getData();
-
-                        profile_image.setImageURI(selectedImage);
-
+                    profile_image.setImageURI(selectedImage);
                     File new_file = new File(selectedImage.getPath());
                     selected_image_path = getRealPathFromURI(selectedImage);
                     Log.e("image_path",selected_image_path);
@@ -575,8 +546,8 @@ public class AddAvailableWorkersActivity extends Activity {
                     .setBodyParameter("member_id", Session.GetUserId(this))
                     .setBodyParameter("name", fname_string)
                     .setBodyParameter("age", age_string)
-                    .setBodyParameter("nationality", nationality_id)
-                    .setBodyParameter("religion", religion_id)
+                    .setBodyParameter("nationality", nationality_string)
+                    .setBodyParameter("religion", religion_string)
                     .setBodyParameter("salary", sal_string)
                     .setBodyParameter("amount", amt_string)
                     .setBodyParameter("experience", experience_string)

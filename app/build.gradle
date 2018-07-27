@@ -43,4 +43,5 @@ dependencies {
     compile 'com.google.android.gms:play-services-maps:11.8.0'
     compile 'com.github.ome450901:SimpleRatingBar:1.4.1'
     compile 'com.eminayar.panterdialog:panter-dialog:0.0.2.1'
+    compile 'com.itlgl:iosdialog:1.0.0'
 }

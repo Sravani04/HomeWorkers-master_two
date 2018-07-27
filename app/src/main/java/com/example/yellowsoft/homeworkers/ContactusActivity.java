@@ -85,22 +85,23 @@ public class ContactusActivity extends Activity {
         call_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder;
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    builder = new AlertDialog.Builder(ContactusActivity.this, android.R.style.Theme_Material_Dialog_Alert);
-                } else {
-                    builder = new AlertDialog.Builder(ContactusActivity.this);
-                }
-                builder.setTitle("Alert")
-                        .setMessage("Call facility is not available!!!")
-                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        })
 
-                        .setIcon(android.R.drawable.ic_dialog_alert)
-                        .show();
+                final AlertDialog.Builder builder = new AlertDialog.Builder(ContactusActivity.this);
+                builder.setTitle("Alert");
+                builder.setMessage("Call facility is not available!!!");
+
+                // add a button
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+
+                // create and show the alert dialog
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
             }
         });
 
