@@ -159,6 +159,47 @@ public class StepFourActivity extends Activity {
             }
         });
 
+        from_date_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                datePicker();
+            }
+        });
+
+        to_date_option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                datePicker2();
+            }
+        });
+
+        from2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                datePicker2();
+            }
+        });
+
+        todate2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                datePicker2();
+            }
+        });
+
+        from3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                datePicker3();
+            }
+        });
+
+        todate3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                datePicker3();
+            }
+        });
 
 
         back_btn.setOnClickListener(new View.OnClickListener() {
