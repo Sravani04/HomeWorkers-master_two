@@ -120,6 +120,9 @@ public class MainActivity extends AppCompatActivity {
 
         corporate_popup.setVisibility(View.GONE);
 
+
+
+
         menu_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -286,6 +289,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onBackPressed(){
+
         Intent a = new Intent(Intent.ACTION_MAIN);
         a.addCategory(Intent.CATEGORY_HOME);
         a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

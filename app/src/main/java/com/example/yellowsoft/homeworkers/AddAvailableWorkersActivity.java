@@ -8,10 +8,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
@@ -62,6 +64,7 @@ public class AddAvailableWorkersActivity extends Activity {
     TextView male_option,female_option;
     String type,service_charge;
     int ASK_MULTIPLE_PERMISSION_REQUEST_CODE;
+    private static final int MY_CAMERA_REQUEST_CODE = 100;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -272,9 +275,15 @@ public class AddAvailableWorkersActivity extends Activity {
 
 
         profile_image.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View view) {
-                Log.e("is","coming or not");
+
+                if (checkSelfPermission(Manifest.permission.CAMERA)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    requestPermissions(new String[]{Manifest.permission.CAMERA},
+                            MY_CAMERA_REQUEST_CODE);
+                }
                 final CharSequence[] items = {"camera","gallery"};
                 AlertDialog.Builder builder = new AlertDialog.Builder(AddAvailableWorkersActivity.this);
                 builder.setTitle("select_image");
@@ -315,10 +324,12 @@ public class AddAvailableWorkersActivity extends Activity {
         switch (requestCode){
             case 1:
                 if (resultCode == RESULT_OK){
-                    Uri selectedImage = imageReturnedIntent.getData();
-                    profile_image.setImageURI(selectedImage);
-                    selected_image_path = getRealPathFromURI(selectedImage);
-                    Log.e("image_path",selected_image_path);
+                    Bitmap photo = (Bitmap) imageReturnedIntent.getExtras().get("data");
+                    profile_image.setImageBitmap(photo);
+//                    Uri selectedImage = imageReturnedIntent.getData();
+//                    profile_image.setImageURI(selectedImage);
+//                    selected_image_path = getRealPathFromURI(selectedImage);
+//                    Log.e("image_path",selected_image_path);
 
                 }
                 break;

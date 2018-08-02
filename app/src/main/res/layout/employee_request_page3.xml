@@ -380,16 +380,31 @@
 
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal">
+                    <com.example.yellowsoft.homeworkers.TextViewRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="10dp"
+                        android:text="University"
+                        android:textColor="@color/white"
+                        android:layout_weight="1"/>
 
-                <com.example.yellowsoft.homeworkers.TextViewRegular
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:text="University"
-                    android:textColor="@color/white" />
+                    <Switch
+                        android:id="@+id/simpleswitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:theme="@style/SelectionSwitch" />
+                </LinearLayout>
+
 
                 <LinearLayout
+                    android:id="@+id/university_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -455,6 +470,7 @@
                         android:background="@color/white"
                         android:orientation="vertical"
                         android:paddingBottom="3dp"></LinearLayout>
+
                     <LinearLayout
                         android:id="@+id/select_date3"
                         android:layout_width="match_parent"
@@ -473,8 +489,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@android:color/transparent"
-                                android:gravity="center_vertical"
                                 android:focusableInTouchMode="false"
+                                android:gravity="center_vertical"
                                 android:hint="Graduated Date"
                                 android:paddingRight="10dp"
                                 android:textColor="@color/white"
@@ -534,16 +550,33 @@
 
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:text="Profissional Institutes"
-                    android:textColor="@color/white" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal">
+
+                    <com.example.yellowsoft.homeworkers.TextViewRegular
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:text="Profissional Institutes"
+                        android:textColor="@color/white" />
+
+                    <Switch
+                        android:id="@+id/simpleswitch1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:theme="@style/SelectionSwitch" />
+                </LinearLayout>
+
 
                 <LinearLayout
+                    android:id="@+id/institutes_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -689,7 +722,7 @@
 
                 </LinearLayout>
 
-                <TextView
+                <com.example.yellowsoft.homeworkers.TextViewRegular
                     android:id="@+id/st_gender"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

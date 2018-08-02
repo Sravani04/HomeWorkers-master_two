@@ -431,7 +431,8 @@ public class StepFourActivity extends Activity {
             Toast.makeText(StepFourActivity.this,"Please Enter Telephone",Toast.LENGTH_SHORT).show();
         }else if (mobile.equals("")){
             Toast.makeText(StepFourActivity.this,"Please Enter Mobile Number",Toast.LENGTH_SHORT).show();
-        }else if (email.equals("")){
+        }else if (email.equals("") || !email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")){
             Toast.makeText(StepFourActivity.this,"Please Enter Email",Toast.LENGTH_SHORT).show();
         }else if (position.equals("")){
             Toast.makeText(StepFourActivity.this,"Please Enter Selected Post",Toast.LENGTH_SHORT).show();

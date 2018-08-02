@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
@@ -28,6 +29,9 @@ public class StepTwoActivity extends Activity {
     ImageView yes_checkbox,no_checkbox,yes_check,no_check,yes_imageview,no_imageview,yes_,no_;
     String checked,checked1,checked2,checked3;
     String fname,mname,familyname,dob,pob,nationality,expirydate,article,address,telephone,mobile,email,position,doyouworknow,whencanyoustart,expectedsal,marital_status;
+    LinearLayout line1,reference_item,line2,line3;
+    TextInputLayout name,relationship_layout;
+    TextView reference;
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -71,6 +75,13 @@ public class StepTwoActivity extends Activity {
         when_layout = (LinearLayout) findViewById(R.id.when_layout);
         yes_ = (ImageView) findViewById(R.id.yes_);
         no_ = (ImageView) findViewById(R.id.no_);
+        line1 = findViewById(R.id.line1);
+        reference_item = findViewById(R.id.reference_item);
+        reference = findViewById(R.id.reference);
+        line2 = findViewById(R.id.line2);
+        line3 = findViewById(R.id.line3);
+        name = findViewById(R.id.name);
+        relationship_layout = findViewById(R.id.relationship_layout);
 
 
         yes.setOnClickListener(new View.OnClickListener() {
@@ -80,9 +91,13 @@ public class StepTwoActivity extends Activity {
                     yes_checkbox.setImageResource(R.drawable.checked);
                     no_checkbox.setImageResource(R.drawable.unchecked);
                     checked="1";
+                    name.setVisibility(View.VISIBLE);
+                    line1.setVisibility(View.VISIBLE);
+
                     //get_quantity();
                 }else {
                     yes_checkbox.setImageResource(R.drawable.unchecked);
+
                 }
             }
         });
@@ -94,6 +109,8 @@ public class StepTwoActivity extends Activity {
                     no_checkbox.setImageResource(R.drawable.checked);
                     yes_checkbox.setImageResource(R.drawable.unchecked);
                     checked="2";
+                    name.setVisibility(View.GONE);
+                    line1.setVisibility(View.GONE);
                     //get_quantity();
                 }else {
                     no_checkbox.setImageResource(R.drawable.unchecked);
@@ -102,6 +119,9 @@ public class StepTwoActivity extends Activity {
             }
         });
 
+
+
+
         yes_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -109,6 +129,8 @@ public class StepTwoActivity extends Activity {
                     yes_check.setImageResource(R.drawable.checked);
                     no_check.setImageResource(R.drawable.unchecked);
                     checked1="1";
+                    reference.setVisibility(View.VISIBLE);
+                    reference_item.setVisibility(View.VISIBLE);
                     //get_quantity();
                 }else {
                     yes_check.setImageResource(R.drawable.unchecked);
@@ -122,13 +144,17 @@ public class StepTwoActivity extends Activity {
                 if (no_check.isEnabled()){
                     no_check.setImageResource(R.drawable.checked);
                     yes_check.setImageResource(R.drawable.unchecked);
-                    checked1="1";
+                    checked1="2";
+                    reference.setVisibility(View.GONE);
+                    reference_item.setVisibility(View.GONE);
                     //get_quantity();
                 }else {
                     no_check.setImageResource(R.drawable.unchecked);
                 }
             }
         });
+
+
 
         yes_layout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,6 +163,8 @@ public class StepTwoActivity extends Activity {
                     yes_imageview.setImageResource(R.drawable.checked);
                     no_imageview.setImageResource(R.drawable.unchecked);
                     checked2="1";
+                    line2.setVisibility(View.VISIBLE);
+                    when_layout.setVisibility(View.VISIBLE);
                     //get_quantity();
                 }else {
                     yes_imageview.setImageResource(R.drawable.unchecked);
@@ -152,13 +180,17 @@ public class StepTwoActivity extends Activity {
                 if (no_imageview.isEnabled()){
                     no_imageview.setImageResource(R.drawable.checked);
                     yes_imageview.setImageResource(R.drawable.unchecked);
-                    checked3="1";
+                    checked2="2";
+                    line2.setVisibility(View.GONE);
+                    when_layout.setVisibility(View.GONE);
                     //get_quantity();
                 }else {
                     no_imageview.setImageResource(R.drawable.unchecked);
                 }
             }
         });
+
+
 
 
         yes_working.setOnClickListener(new View.OnClickListener() {
@@ -168,6 +200,8 @@ public class StepTwoActivity extends Activity {
                     yes_.setImageResource(R.drawable.checked);
                     no_.setImageResource(R.drawable.unchecked);
                     checked3="1";
+                    line3.setVisibility(View.VISIBLE);
+                    relationship_layout.setVisibility(View.VISIBLE);
                     //get_quantity();
                 }else {
                     yes_.setImageResource(R.drawable.unchecked);
@@ -181,13 +215,16 @@ public class StepTwoActivity extends Activity {
                 if (no_.isEnabled()){
                     no_.setImageResource(R.drawable.checked);
                     yes_.setImageResource(R.drawable.unchecked);
-                    checked2="1";
+                    checked3="2";
+                    line3.setVisibility(View.GONE);
+                    relationship_layout.setVisibility(View.GONE);
                     //get_quantity();
                 }else {
                     no_.setImageResource(R.drawable.unchecked);
                 }
             }
         });
+
 
         fname = getIntent().getStringExtra("first_name");
         mname = getIntent().getStringExtra("middle_name");

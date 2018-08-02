@@ -50,8 +50,8 @@ public class RegisterActivity extends Activity {
         register = (TextView) findViewById(R.id.register);
         fp_btn = (TextView) findViewById(R.id.fp_btn);
         final TextView login = (TextView) findViewById(R.id.login);
-        st_email = (TextView) findViewById(R.id.st_email);
-        st_password = (TextView) findViewById(R.id.st_password);
+        //st_email = (TextView) findViewById(R.id.st_email);
+        //st_password = (TextView) findViewById(R.id.st_password);
         login_submit = (TextView) findViewById(R.id.login_submit);
         register_ll = (TextView) findViewById(R.id.register_ll);
         st_fname = (TextView) findViewById(R.id.st_fname);
@@ -61,8 +61,8 @@ public class RegisterActivity extends Activity {
         st_pass = (TextView) findViewById(R.id.st_pass);
         back_btn = (ImageView) findViewById(R.id.back_btn);
 
-        st_email.setText(Session.GetWord(this,"Email Address"));
-        st_password.setText(Session.GetWord(this,"Password"));
+       // st_email.setText(Session.GetWord(this,"Email Address"));
+        //st_password.setText(Session.GetWord(this,"Password"));
         fp_btn.setText(Session.GetWord(this,"Forgot Password"));
         login_submit.setText(Session.GetWord(this,"Submit"));
         st_fname.setText(Session.GetWord(this,"First Name"));
@@ -132,7 +132,8 @@ public class RegisterActivity extends Activity {
 
         String email_string = email.getText().toString();
         String password_string = password.getText().toString();
-        if (email_string.equals("")){
+        if (email_string.equals("") || !email_string.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")){
             Toast.makeText(RegisterActivity.this,"Please Enter Email Address",Toast.LENGTH_SHORT).show();
             email.requestFocus();
         }else if (password_string.equals("")){
@@ -187,7 +188,8 @@ public class RegisterActivity extends Activity {
         }else if (lname_string.equals("")){
             Toast.makeText(RegisterActivity.this,"Please Enter Last Name",Toast.LENGTH_SHORT).show();
             reg_lname.requestFocus();
-        }else if (email_string.equals("")){
+        }else if (email_string.equals("") || !email_string.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")){
             Toast.makeText(RegisterActivity.this,"Please Enter Email",Toast.LENGTH_SHORT).show();
             reg_email.requestFocus();
         }else if (password_string.equals("")){

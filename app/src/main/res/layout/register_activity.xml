@@ -121,27 +121,29 @@
                         android:layout_margin="10dp"
                         android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/st_email"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Email Address"
-                            android:textColor="@color/grey"></TextView>
-
-                        <EditText
-                            android:id="@+id/email"
+                        <android.support.design.widget.TextInputLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@android:color/transparent"
-                            android:gravity="start"
-                            android:inputType="textEmailAddress"
-                            android:padding="5dp"
-                            android:textAlignment="viewStart"
-                            android:textColor="#FFFFFF"
-                            android:textColorHint="#FFFFFF"
-                            android:textColorLink="#FFFFFF"
-                            android:textCursorDrawable="@null"
-                            android:textSize="16sp" />
+                            android:layout_height="50dp"
+                            android:theme="@style/TextLabel">
+
+                            <com.example.yellowsoft.homeworkers.EditTextRegular
+                                android:id="@+id/email"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:gravity="center_vertical"
+                                android:hint="Email Address"
+                                android:inputType="textEmailAddress"
+                                android:paddingLeft="0dp"
+                                android:textColor="@color/white"
+                                android:textColorHint="@color/registerdeselect"
+                                android:textColorLink="@color/white"
+                                android:textSize="15sp" />
+                        </android.support.design.widget.TextInputLayout>
+
+
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -150,27 +152,29 @@
                             android:orientation="vertical"
                             android:layout_marginBottom="10dp"></LinearLayout>
 
-                        <TextView
-                            android:id="@+id/st_password"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Password"
-                            android:textColor="@color/grey"></TextView>
-
-                        <EditText
-                            android:id="@+id/password"
+                        <android.support.design.widget.TextInputLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@android:color/transparent"
-                            android:gravity="start"
-                            android:inputType="textPassword"
-                            android:padding="5dp"
-                            android:textAlignment="viewStart"
-                            android:textColor="#FFFFFF"
-                            android:textColorHint="#FFFFFF"
-                            android:textColorLink="#FFFFFF"
-                            android:textCursorDrawable="@null"
-                            android:textSize="16sp" />
+                            android:layout_height="50dp"
+                            android:theme="@style/TextLabel">
+
+                            <com.example.yellowsoft.homeworkers.EditTextRegular
+                                android:id="@+id/password"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@android:color/transparent"
+                                android:ems="10"
+                                android:gravity="center_vertical"
+                                android:hint="Password"
+                                android:inputType="textPassword"
+                                android:paddingLeft="0dp"
+                                android:textColor="@color/white"
+                                android:textColorHint="@color/registerbackground"
+                                android:textColorLink="@color/white"
+                                android:textSize="15sp" />
+                        </android.support.design.widget.TextInputLayout>
+
+
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -198,7 +202,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
                             android:layout_margin="15dp"
-                            android:background="@drawable/white_rou_rectangle"
+                            android:background="@drawable/white_fully_rounded_rect"
                             android:gravity="center"
                             android:orientation="vertical">
 
@@ -211,7 +215,7 @@
                                 android:layout_marginRight="25dp"
                                 android:layout_marginTop="10dp"
                                 android:text="Submit"
-                                android:textColor="#ffffff"
+                                android:textColor="@color/black"
                                 android:textSize="15sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -391,7 +395,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="40dp"
                                     android:layout_margin="10dp"
-                                    android:background="@drawable/white_rou_rectangle"
+                                    android:background="@drawable/whire_rounded_corners_color"
                                     android:gravity="center"
                                     android:orientation="vertical">
 
@@ -401,7 +405,7 @@
                                         android:layout_height="match_parent"
                                         android:gravity="center_vertical|center_horizontal"
                                         android:text="Submit"
-                                        android:textColor="#ffffff"
+                                        android:textColor="@color/black"
                                         android:textSize="15sp" />
                                 </LinearLayout>
 

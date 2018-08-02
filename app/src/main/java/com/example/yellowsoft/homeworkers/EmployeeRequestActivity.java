@@ -226,6 +226,13 @@ public class EmployeeRequestActivity extends Activity {
             }
         });
 
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EmployeeRequestActivity.this.onBackPressed();
+            }
+        });
+
 //        yes.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {

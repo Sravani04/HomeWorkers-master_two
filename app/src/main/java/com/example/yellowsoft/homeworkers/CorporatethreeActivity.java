@@ -8,10 +8,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
@@ -45,6 +47,7 @@ public class CorporatethreeActivity extends Activity {
     Integer REQUEST_CAMERA = 1, SELECT_FILE = 0;
     int ASK_MULTIPLE_PERMISSION_REQUEST_CODE;
     EditText email,phone,addr;
+    private static final int MY_CAMERA_REQUEST_CODE = 100;
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -131,169 +134,89 @@ public class CorporatethreeActivity extends Activity {
         });
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     public void pick_image() {
-        final CharSequence[] options = { "Take Photo", "Choose from Gallery","Cancel" };
-
-
-
+        if (checkSelfPermission(Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.CAMERA},
+                    MY_CAMERA_REQUEST_CODE);
+        }
+        final CharSequence[] items = {"camera","gallery"};
         AlertDialog.Builder builder = new AlertDialog.Builder(CorporatethreeActivity.this);
-
-        builder.setTitle("Add Photo!");
-
-        builder.setItems(options, new DialogInterface.OnClickListener() {
-
+        builder.setTitle("select_image");
+        builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
-
             public void onClick(DialogInterface dialog, int item) {
-
-                if (options[item].equals("Take Photo"))
-
-                {
-
+                if(items[item].equals("camera")){
                     Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(intent,1);
 
-                    File f = new File(android.os.Environment.getExternalStorageDirectory(), "temp.jpg");
-
-                    intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
-
-                    startActivityForResult(intent, 1);
-
+                }else if(items[item].equals("gallery")){
+                    Intent pickPhoto = new Intent(Intent.ACTION_PICK,
+                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(pickPhoto,2);
                 }
-
-                else if (options[item].equals("Choose from Gallery"))
-
-                {
-
-                    Intent intent = new   Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-
-                    startActivityForResult(intent, 2);
-
-
-
-                }
-
-                else if (options[item].equals("Cancel")) {
-
-                    dialog.dismiss();
-
-                }
-
             }
-
         });
-
-        builder.show();
+        AlertDialog alert = builder.create();
+        alert.show();
 
     }
 
 
     public void pick_image1() {
-        final CharSequence[] options = { "Take Photo", "Choose from Gallery","Cancel" };
-
-
-
+        if (checkSelfPermission(Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.CAMERA},
+                    MY_CAMERA_REQUEST_CODE);
+        }
+        final CharSequence[] items = {"camera","gallery"};
         AlertDialog.Builder builder = new AlertDialog.Builder(CorporatethreeActivity.this);
-
-        builder.setTitle("Add Photo!");
-
-        builder.setItems(options, new DialogInterface.OnClickListener() {
-
+        builder.setTitle("select_image");
+        builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
-
             public void onClick(DialogInterface dialog, int item) {
-
-                if (options[item].equals("Take Photo"))
-
-                {
-
+                if(items[item].equals("camera")){
                     Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(intent,3);
 
-                    File f = new File(android.os.Environment.getExternalStorageDirectory(), "temp.jpg");
-
-                    intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
-
-                    startActivityForResult(intent, 3);
-
+                }else if(items[item].equals("gallery")){
+                    Intent pickPhoto = new Intent(Intent.ACTION_PICK,
+                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(pickPhoto,4);
                 }
-
-                else if (options[item].equals("Choose from Gallery"))
-
-                {
-
-                    Intent intent = new   Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-
-                    startActivityForResult(intent, 4);
-
-
-
-                }
-
-                else if (options[item].equals("Cancel")) {
-
-                    dialog.dismiss();
-
-                }
-
             }
-
         });
-
-        builder.show();
+        AlertDialog alert = builder.create();
+        alert.show();
 
     }
 
     public void pick_image2() {
-        final CharSequence[] options = { "Take Photo", "Choose from Gallery","Cancel" };
-
-
-
+        if (checkSelfPermission(Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.CAMERA},
+                    MY_CAMERA_REQUEST_CODE);
+        }
+        final CharSequence[] items = {"camera","gallery"};
         AlertDialog.Builder builder = new AlertDialog.Builder(CorporatethreeActivity.this);
-
-        builder.setTitle("Add Photo!");
-
-        builder.setItems(options, new DialogInterface.OnClickListener() {
-
+        builder.setTitle("select_image");
+        builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
-
             public void onClick(DialogInterface dialog, int item) {
-
-                if (options[item].equals("Take Photo"))
-
-                {
-
+                if(items[item].equals("camera")){
                     Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(intent,5);
 
-                    File f = new File(android.os.Environment.getExternalStorageDirectory(), "temp.jpg");
-
-                    intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
-
-                    startActivityForResult(intent, 5);
-
+                }else if(items[item].equals("gallery")){
+                    Intent pickPhoto = new Intent(Intent.ACTION_PICK,
+                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(pickPhoto,6);
                 }
-
-                else if (options[item].equals("Choose from Gallery"))
-
-                {
-
-                    Intent intent = new   Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-
-                    startActivityForResult(intent, 6);
-
-
-
-                }
-
-                else if (options[item].equals("Cancel")) {
-
-                    dialog.dismiss();
-
-                }
-
             }
-
         });
-
-        builder.show();
+        AlertDialog alert = builder.create();
+        alert.show();
 
     }
 
@@ -305,10 +228,12 @@ public class CorporatethreeActivity extends Activity {
         switch (requestCode){
             case 1:
                 if (resultCode == RESULT_OK){
-                    Uri selectedImage = imageReturnedIntent.getData();
-                    trade_image.setImageURI(selectedImage);
-                    selected_image_path = getRealPathFromURI(selectedImage);
-                    Log.e("image_path",selected_image_path);
+                    Bitmap photo = (Bitmap) imageReturnedIntent.getExtras().get("data");
+                    trade_image.setImageBitmap(photo);
+//                    Uri selectedImage = imageReturnedIntent.getData();
+//                    trade_image.setImageURI(selectedImage);
+//                    selected_image_path = getRealPathFromURI(selectedImage);
+//                    Log.e("image_path",selected_image_path);
 
                 }
                 break;
@@ -324,13 +249,15 @@ public class CorporatethreeActivity extends Activity {
                 break;
 
             case 3:
-                if (resultCode == RESULT_OK){
-                    Uri selectedImage = imageReturnedIntent.getData();
-                    signatory_image.setImageURI(selectedImage);
-                    selected_image_path1 = getRealPathFromURI(selectedImage);
-                    Log.e("image_path",selected_image_path1);
-
-                }
+                Bitmap photo1 = (Bitmap) imageReturnedIntent.getExtras().get("data");
+                signatory_image.setImageBitmap(photo1);
+//                if (resultCode == RESULT_OK){
+//                    Uri selectedImage = imageReturnedIntent.getData();
+//                    signatory_image.setImageURI(selectedImage);
+//                    selected_image_path1 = getRealPathFromURI(selectedImage);
+//                    Log.e("image_path",selected_image_path1);
+//
+//                }
                 break;
             case 4:
                 if(resultCode == RESULT_OK){
@@ -344,13 +271,15 @@ public class CorporatethreeActivity extends Activity {
                 break;
 
             case 5:
-                if (resultCode == RESULT_OK){
-                    Uri selectedImage = imageReturnedIntent.getData();
-                    civil_image.setImageURI(selectedImage);
-                    selected_image_path2 = getRealPathFromURI(selectedImage);
-                    Log.e("image_path",selected_image_path2);
-
-                }
+                Bitmap photo2 = (Bitmap) imageReturnedIntent.getExtras().get("data");
+                civil_image.setImageBitmap(photo2);
+//                if (resultCode == RESULT_OK){
+//                    Uri selectedImage = imageReturnedIntent.getData();
+//                    civil_image.setImageURI(selectedImage);
+//                    selected_image_path2 = getRealPathFromURI(selectedImage);
+//                    Log.e("image_path",selected_image_path2);
+//
+//                }
                 break;
             case 6:
                 if(resultCode == RESULT_OK){

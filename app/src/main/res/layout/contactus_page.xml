@@ -75,7 +75,7 @@
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:textColorHint="@color/registerbackground">
+                        android:theme="@style/TextLabel">
 
                         <com.example.yellowsoft.homeworkers.EditTextRegular
                             android:id="@+id/name"
@@ -89,7 +89,7 @@
                             android:inputType="textPersonName"
                             android:paddingLeft="10dp"
                             android:textColor="@color/white"
-                            android:textColorHint="@color/registerbackground"
+                            android:textColorHint="@color/registerdeselect"
                             android:textColorLink="@color/white"
                             android:textSize="15sp" />
                     </android.support.design.widget.TextInputLayout>
@@ -106,7 +106,7 @@
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:textColorHint="@color/registerbackground">
+                    android:theme="@style/TextLabel">
 
                     <com.example.yellowsoft.homeworkers.EditTextRegular
                         android:id="@+id/email"
@@ -135,7 +135,7 @@
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:textColorHint="@color/registerbackground">
+                    android:theme="@style/TextLabel">
 
                     <com.example.yellowsoft.homeworkers.EditTextRegular
                         android:id="@+id/phone"
@@ -165,7 +165,7 @@
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:textColorHint="@color/registerbackground">
+                    android:theme="@style/TextLabel">
 
                     <com.example.yellowsoft.homeworkers.EditTextRegular
                         android:id="@+id/message"

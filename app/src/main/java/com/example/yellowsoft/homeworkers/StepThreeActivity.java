@@ -4,13 +4,16 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -32,6 +35,8 @@ public class StepThreeActivity extends Activity {
     String fname,mname,familyname,dob,pob,nationality,expirydate,article,address,telephone,mobile,email,position,doyouworknow,whencanyoustart,expectedsal,marital_status,
     company_name,fullname,occupation,companyname,relationship,employed,current_employer,applied,relatives,contact,when;
     LinearLayout select_graduate_date,select_date,select_date3,select_date4;
+    LinearLayout university_layout,institutes_layout;
+    Switch simpleswitch,simpleswitch1;
 
     EnglishLevelAdapter englishLevelAdapter;
 
@@ -89,6 +94,11 @@ public class StepThreeActivity extends Activity {
         select_date = (LinearLayout) findViewById(R.id.select_date);
         select_date3 = (LinearLayout) findViewById(R.id.select_date3);
         select_date4 = (LinearLayout) findViewById(R.id.select_date4);
+        university_layout = findViewById(R.id.university_layout);
+        simpleswitch = findViewById(R.id.simpleswitch);
+        institutes_layout = findViewById(R.id.institutes_layout);
+        simpleswitch1 = findViewById(R.id.simpleswitch1);
+
 
 
 
@@ -127,6 +137,32 @@ public class StepThreeActivity extends Activity {
 
         //englishLevelAdapter = new EnglishLevelAdapter(this,titles);
         //other_list.setAdapter(englishLevelAdapter);
+
+        university_layout.setVisibility(View.GONE);
+        simpleswitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    university_layout.setVisibility(View.VISIBLE);
+                }else {
+                    university_layout.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        institutes_layout.setVisibility(View.GONE);
+
+        simpleswitch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    institutes_layout.setVisibility(View.VISIBLE);
+                }else {
+                    institutes_layout.setVisibility(View.GONE);
+                }
+            }
+        });
+
 
         englishLevelAdapter = new EnglishLevelAdapter(this,titles);
         arabic_list.setAdapter(englishLevelAdapter);

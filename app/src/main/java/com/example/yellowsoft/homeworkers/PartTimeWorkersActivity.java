@@ -169,6 +169,8 @@ public class PartTimeWorkersActivity extends Activity {
 
 
 
+
+
         morning_shift.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -256,6 +258,15 @@ public class PartTimeWorkersActivity extends Activity {
         });
 
         select_service.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                service_popup.setVisibility(View.VISIBLE);
+                Animation anim = AnimationUtils.loadAnimation(PartTimeWorkersActivity.this, R.anim.myanim);
+                service_popup.startAnimation(anim);
+            }
+        });
+
+        service_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 service_popup.setVisibility(View.VISIBLE);

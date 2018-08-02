@@ -7,6 +7,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -108,7 +110,10 @@ public class ContactusActivity extends Activity {
 
 
 
-        }
+
+
+
+    }
 
     public void contactusform(){
         String name_string = name.getText().toString();
@@ -118,7 +123,8 @@ public class ContactusActivity extends Activity {
         if (name_string.equals("")){
             Toast.makeText(ContactusActivity.this,"Please Enter Name",Toast.LENGTH_SHORT).show();
             name.requestFocus();
-        }else if (email_string.equals("")){
+        }else if (email_string.equals("") || !email_string.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")){
             Toast.makeText(ContactusActivity.this,"Please Enter Email",Toast.LENGTH_SHORT).show();
             email.requestFocus();
         }else if (phone_string.equals("")){
