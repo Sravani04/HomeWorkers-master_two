@@ -353,6 +353,39 @@ It has survived not only five centuries, but also the leap into electronic types
                     android:layout_height="1dp"
                     android:background="@color/registerdeselect"></LinearLayout>
 
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <com.example.yellowsoft.homeworkers.TextViewRegular
+                        android:id="@+id/st_about"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="About Worker"
+                        android:textColor="@color/registerdeselect"
+                        android:textStyle="bold" />
+
+                    <com.example.yellowsoft.homeworkers.TextViewRegular
+                        android:id="@+id/hw_about"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textMultiLine"
+                        android:paddingLeft="5dp"
+                        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/registerdeselect"></LinearLayout>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="20dp" />
@@ -486,7 +519,8 @@ It has survived not only five centuries, but also the leap into electronic types
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:textColorHint="@color/registerdeselect">
+                    android:textColorHint="@color/registerdeselect"
+                    android:visibility="gone">
 
                     <com.example.yellowsoft.homeworkers.EditTextRegular
                         android:id="@+id/details"
@@ -507,12 +541,14 @@ It has survived not only five centuries, but also the leap into electronic types
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="30dp" />
+                    android:layout_height="30dp"
+                    android:visibility="gone" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/registerdeselect"></LinearLayout>
+                    android:background="@color/registerdeselect"
+                    android:visibility="gone"></LinearLayout>
 
 
                 <com.example.yellowsoft.homeworkers.TextViewRegular

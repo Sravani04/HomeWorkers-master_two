@@ -12,7 +12,7 @@ import java.io.Serializable;
 
 public class HomeWorkers implements Serializable {
     public String id,name,name_ar,applicant_id,age,salary,image,amount,part_amount,experience,nationality_id,nationality_title,
-            nationality_title_ar,religion_id,religion_title,religion_title_ar;
+            nationality_title_ar,religion_id,religion_title,religion_title_ar,experience_ar,about,about_ar;
     public HomeWorkers(JsonObject jsonObject,Context context){
         id = jsonObject.get("id").getAsString();
         name = jsonObject.get("name").getAsString();
@@ -24,6 +24,9 @@ public class HomeWorkers implements Serializable {
         amount = jsonObject.get("amount").getAsString();
         part_amount = jsonObject.get("part_amount").getAsString();
         experience = jsonObject.get("experience").getAsString();
+        experience_ar = jsonObject.get("experience_ar").getAsString();
+        about = jsonObject.get("about").getAsString();
+        about_ar = jsonObject.get("about_ar").getAsString();
         nationality_id = jsonObject.get("nationality").getAsJsonObject().get("id").getAsString();
         nationality_title = jsonObject.get("nationality").getAsJsonObject().get("title").getAsString();
         nationality_title_ar = jsonObject.get("nationality").getAsJsonObject().get("title_ar").getAsString();

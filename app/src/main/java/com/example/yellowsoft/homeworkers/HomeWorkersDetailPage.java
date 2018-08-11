@@ -52,8 +52,8 @@ public class HomeWorkersDetailPage extends Activity {
     TextView book_btn,part_amt;
     String amount;
     String msg;
-    TextView st_exp,st_pd,st_full_amt,st_rem_amt,st_partial;
-    TextView remaining_amt,hw_experience;
+    TextView st_exp,st_pd,st_full_amt,st_rem_amt,st_partial,st_about;
+    TextView remaining_amt,hw_experience,hw_about;
     String full_amt_kd,part_amt_kd,full_amount,part_amount;
 
     @Override
@@ -96,6 +96,8 @@ public class HomeWorkersDetailPage extends Activity {
         st_full_amt = (TextView) findViewById(R.id.st_full_amt);
         //st_rem_amt = (TextView) findViewById(R.id.st_rem_amt);
         st_partial = (TextView) findViewById(R.id.st_partial);
+        st_about =  findViewById(R.id.st_about);
+        hw_about = findViewById(R.id.hw_about);
 
         book_btn = (TextView) findViewById(R.id.pay_btn);
          ratingBar = (RatingBar) findViewById(R.id.rating);
@@ -108,7 +110,15 @@ public class HomeWorkersDetailPage extends Activity {
         });
 
         hw_experience = (TextView) findViewById(R.id.hw_experience);
-        hw_experience.setText(homeWorkers.experience);
+
+        if (Session.GetLang(this).equals("en")) {
+            hw_experience.setText(homeWorkers.experience);
+            hw_about.setText(homeWorkers.about);
+        }else {
+            hw_experience.setText(homeWorkers.experience_ar);
+            hw_about.setText(homeWorkers.about_ar);
+        }
+
 
 
 
@@ -138,7 +148,6 @@ public class HomeWorkersDetailPage extends Activity {
         hw_religion.setText(homeWorkers.religion_title);
         hw_sal.setText(homeWorkers.salary + " KD ");
         hw_amt.setText(homeWorkers.amount + " KD ");
-        hw_experience.setText(homeWorkers.experience);
        // full_amt.setText(homeWorkers.amount);
         amount = homeWorkers.part_amount;
         part_amt.setText(amount);

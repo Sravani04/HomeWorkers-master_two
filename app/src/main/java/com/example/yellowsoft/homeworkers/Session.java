@@ -28,6 +28,7 @@ public class Session {
     public static final String worker_id = "worker_id";
     public static final String lang = "lan";
     public static  final String setting = "settings";
+    static String lan_key = "minwain_lan";
 
     public static void SetUserId(Context context, String id) {
         SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
@@ -99,6 +100,22 @@ public class Session {
         SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
         editor.putString(Words_en, en);
         editor.commit();
+    }
+
+    public static void set_user_language(Context context, String user_id) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(lan_key, user_id);
+        editor.commit();
+    }
+
+    public static String get_user_language(Context context) {
+        try {
+            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+            return sharedPreferences.getString(lan_key, "en");
+        } catch (Exception var2) {
+            return "en";
+        }
     }
 
     public static String GetEnWords(Context context) {
